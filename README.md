@@ -25,7 +25,7 @@ se ejecuta en FastAPI; React únicamente envía los parámetros y dibuja los res
 
 ## Funcionalidad
 
-La aplicación expone las herramientas en dos categorías (según el diseño de Figma):
+La aplicación expone las herramientas en dos categorías:
 
 **[01] Solución de sistemas por gráfica**
 - **Graficador de funciones** — dibuja `f(x)` sobre un plano cartesiano.
