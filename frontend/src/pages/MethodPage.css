@@ -1,0 +1,50 @@
+.method-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.method-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.back-link {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  width: fit-content;
+}
+
+.method-head h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 400px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.method-inputs h2,
+.method-output h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.muted {
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 960px) {
+  .method-grid {
+    grid-template-columns: 1fr;
+  }
+}

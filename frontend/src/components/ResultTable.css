@@ -1,0 +1,76 @@
+.result-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.result-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+}
+
+.result-table th,
+.result-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.result-table th {
+  position: sticky;
+  top: 0;
+  background: var(--color-panel);
+  color: var(--color-ink);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.result-table td {
+  color: var(--color-accent);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+.result-table td:first-child {
+  color: var(--color-ink);
+}
+
+.result-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.result-table tbody tr:hover {
+  background: rgba(44, 146, 184, 0.06);
+}
+
+/* Vector / value inputs */
+.vector-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.vector-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.vector-controls {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.vector-controls button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 6px;
+}

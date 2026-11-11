@@ -1,0 +1,169 @@
+.help {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.help-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.help-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.help-section h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.muted {
+  color: var(--color-body);
+  line-height: 1.6;
+}
+
+.anatomy-list {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.anatomy-list li {
+  color: var(--color-body);
+  line-height: 1.5;
+}
+
+.anatomy-list strong {
+  color: var(--color-ink);
+}
+
+.steps-flow {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-node {
+  background: var(--color-panel);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.step-num {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.step-node h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.step-node p {
+  font-size: 0.9rem;
+}
+
+.syntax-table-wrap {
+  margin-top: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.syntax-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.syntax-table th,
+.syntax-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.syntax-table th {
+  background: var(--color-panel);
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.syntax-table td code {
+  color: var(--color-accent);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+.syntax-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.faq-items {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.5rem 0;
+}
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-align: left;
+}
+
+.faq-q span:last-child {
+  color: var(--color-accent);
+  font-size: 1.3rem;
+}
+
+.faq-a {
+  padding: 0 0 1rem;
+  color: var(--color-body);
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.help-callout {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .help-header h1 {
+    font-size: 36px;
+  }
+  .steps-flow {
+    grid-template-columns: 1fr;
+  }
+}
