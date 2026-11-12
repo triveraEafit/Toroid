@@ -68,7 +68,14 @@ export function MethodPage() {
           setMessage(`f(${values.x}) = ${res.value}`)
         }
       } else {
-        const res = await api.runMethod(method.endpoint, values)
+        // Iterative system methods use "x0_vec" in the UI to avoid clashing
+        // with the scalar "x0" of root methods; the API expects "x0".
+        const payload = { ...values }
+        if ('x0_vec' in payload) {
+          payload.x0 = payload.x0_vec
+          delete payload.x0_vec
+        }
+        const res = await api.runMethod(method.endpoint, payload)
         setResult(res)
       }
     } catch (e) {

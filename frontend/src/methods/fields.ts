@@ -38,6 +38,8 @@ export const FIELD_SPECS: Record<string, FieldSpec> = {
   },
   matrix: { key: 'matrix', label: 'Coefficient matrix A', kind: 'matrix', default: [[4, -1, 0], [-1, 4, -1], [0, -1, 4]] },
   vector: { key: 'vector', label: 'Vector b', kind: 'vector', default: [2, 4, 10] },
+  // Initial guess vector for iterative system methods. Sent to the API as "x0".
+  x0_vec: { key: 'x0_vec', label: 'Initial vector x0', kind: 'vector', default: [0, 0, 0] },
   points_x: { key: 'x', label: 'x values', kind: 'points', default: [0, 1, 2, 3] },
   x: { key: 'x', label: 'x values', kind: 'vector', default: [0, 1, 2, 3] },
   y: { key: 'y', label: 'y values', kind: 'vector', default: [0, 1, 4, 9] },
