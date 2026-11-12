@@ -25,7 +25,7 @@ se ejecuta en FastAPI; React únicamente envía los parámetros y dibuja los res
 
 ## Funcionalidad
 
-La aplicación expone las herramientas en dos categorías:
+La aplicación expone las herramientas en cuatro categorías:
 
 **[01] Solución de sistemas por gráfica**
 - **Graficador de funciones** — dibuja `f(x)` sobre un plano cartesiano.
@@ -40,12 +40,22 @@ La aplicación expone las herramientas en dos categorías:
 - **Secante**
 - **Raíces múltiples**
 
-Además, el backend incluye (disponibles vía API, aunque no estén en el menú del diseño)
-métodos de **sistemas lineales** (eliminación gaussiana simple/parcial/total, factorización
-LU, Crout, Doolittle, Cholesky, Jacobi, Gauss-Seidel, SOR) e **interpolación**
-(Vandermonde, diferencias divididas de Newton, Lagrange y splines).
+**[03] Solución de sistemas de ecuaciones**
+- **Eliminación gaussiana** — simple, pivoteo parcial y pivoteo total.
+- **Factorización LU** — simple y parcial.
+- **Crout**, **Doolittle**, **Cholesky**.
+- **Métodos iterativos** — Jacobi, Gauss-Seidel y SOR (relajación).
 
-El resto de páginas son **Inicio**, **Métodos**, **Learn** (documentación de cada método)
+**[04] Interpolación**
+- **Vandermonde**
+- **Newton** (diferencias divididas)
+- **Lagrange**
+- **Splines** — lineal, cuadrático y cúbico.
+
+Cada método devuelve la tabla de pasos/iteraciones completa junto con el resultado
+(raíz, vector solución o polinomio).
+
+Las demás páginas son **Inicio**, **Métodos**, **Learn** (documentación de cada método)
 y **Ayuda** (anatomía del espacio de trabajo, guía de sintaxis y preguntas frecuentes).
 
 ---
@@ -117,6 +127,27 @@ npm run lint     # Analizar el código con oxlint
 
 ---
 
+## Pruebas (tests)
+
+El backend incluye una suite de **pytest** que cubre todos los métodos numéricos
+(comparados contra resultados conocidos y casos de validación/error) y los endpoints
+de la API.
+
+```bash
+cd backend
+
+# Instalar las dependencias de desarrollo (una sola vez)
+pip install -r requirements-dev.txt
+
+# Ejecutar todas las pruebas
+pytest
+```
+
+Se ejecutan 77 pruebas repartidas en `backend/tests/`: evaluador de expresiones,
+métodos de raíces, sistemas lineales, interpolación y pruebas de la API.
+
+---
+
 ## Estructura del proyecto
 
 ```
@@ -128,7 +159,9 @@ Toroid/
 │   │   ├── routers/       # Endpoints de la API
 │   │   ├── schemas/       # Modelos de petición/respuesta (Pydantic)
 │   │   └── main.py        # Punto de entrada de FastAPI + catálogo de métodos
-│   └── requirements.txt
+│   ├── tests/             # Suite de pruebas (pytest)
+│   ├── requirements.txt
+│   └── requirements-dev.txt
 └── frontend/
     └── src/
         ├── api/           # Cliente HTTP y tipos
