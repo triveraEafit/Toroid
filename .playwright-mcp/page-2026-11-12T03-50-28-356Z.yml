@@ -1,0 +1,104 @@
+- generic [ref=f12e3]:
+  - banner [ref=f12e4]:
+    - generic [ref=f12e5]:
+      - link "Ir al inicio" [ref=f12e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f12e7]: Toroid
+      - navigation [ref=f12e10]:
+        - link "Inicio" [ref=f12e11] [cursor=pointer]:
+          - /url: /
+        - link "Métodos" [ref=f12e12] [cursor=pointer]:
+          - /url: /methods
+        - link "Aprender" [ref=f12e13] [cursor=pointer]:
+          - /url: /learn
+        - link "Ayuda" [ref=f12e14] [cursor=pointer]:
+          - /url: /help
+        - generic [ref=f12e15]:
+          - generic [ref=f12e16]: Idioma
+          - combobox "Idioma" [ref=f12e17] [cursor=pointer]:
+            - option "ES" [selected]
+            - option "EN"
+  - main [ref=f12e18]:
+    - generic [ref=f12e19]:
+      - generic [ref=f12e20]:
+        - link "← Todos los métodos" [ref=f12e21] [cursor=pointer]:
+          - /url: /methods
+        - generic [ref=f12e22]: interpolation
+        - heading "Lagrange" [level=1] [ref=f12e23]
+      - generic [ref=f12e24]:
+        - generic [ref=f12e25]:
+          - heading "Entradas" [level=2] [ref=f12e26]
+          - generic [ref=f12e27]:
+            - generic [ref=f12e29]:
+              - generic [ref=f12e30]: Valores de x
+              - generic [ref=f12e31]:
+                - spinbutton "Valores de x 1" [ref=f12e32]: "-1"
+                - spinbutton "Valores de x 2" [ref=f12e33]: "0"
+                - spinbutton "Valores de x 3" [ref=f12e34]: "2"
+                - spinbutton "Valores de x 4" [ref=f12e35]: "4"
+                - generic [ref=f12e36]:
+                  - button "Add value" [ref=f12e37] [cursor=pointer]: +
+                  - button "Remove value" [ref=f12e38] [cursor=pointer]: −
+            - generic [ref=f12e40]:
+              - generic [ref=f12e41]: Valores de y
+              - generic [ref=f12e42]:
+                - spinbutton "Valores de y 1" [ref=f12e43]: "3"
+                - spinbutton "Valores de y 2" [ref=f12e44]: "1"
+                - spinbutton "Valores de y 3" [ref=f12e45]: "5"
+                - spinbutton "Valores de y 4" [ref=f12e46]: "17"
+                - generic [ref=f12e47]:
+                  - button "Add value" [ref=f12e48] [cursor=pointer]: +
+                  - button "Remove value" [ref=f12e49] [cursor=pointer]: −
+            - button "Calcular" [ref=f12e50] [cursor=pointer]
+        - generic [ref=f12e51]:
+          - heading "Resultado" [level=2] [ref=f12e52]
+          - generic [ref=f12e76]:
+            - status [ref=f12e77]: Lagrange interpolating polynomial found
+            - generic [ref=f12e78]:
+              - generic [ref=f12e79]: Result
+              - code [ref=f12e80]: P(x) = -0.066667*x^3 + 1.4*x^2 - 0.533333*x + 1.0
+            - table [ref=f12e82]:
+              - rowgroup [ref=f12e83]:
+                - row [ref=f12e84]:
+                  - columnheader "term" [ref=f12e85]
+                  - columnheader "coefficient" [ref=f12e86]
+              - rowgroup [ref=f12e87]:
+                - row [ref=f12e88]:
+                  - cell "L0" [ref=f12e89]
+                  - cell "-0.2" [ref=f12e90]
+                - row [ref=f12e91]:
+                  - cell "L1" [ref=f12e92]
+                  - cell "0.125" [ref=f12e93]
+                - row [ref=f12e94]:
+                  - cell "L2" [ref=f12e95]
+                  - cell "-0.41666667" [ref=f12e96]
+                - row [ref=f12e97]:
+                  - cell "L3" [ref=f12e98]
+                  - cell "0.425" [ref=f12e99]
+  - contentinfo [ref=f12e54]:
+    - generic [ref=f12e55]:
+      - generic [ref=f12e56]:
+        - generic [ref=f12e57]: Toroid
+        - paragraph [ref=f12e60]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+      - generic [ref=f12e61]:
+        - generic [ref=f12e62]:
+          - heading "Plataforma" [level=4] [ref=f12e63]
+          - link "Métodos" [ref=f12e64] [cursor=pointer]:
+            - /url: /methods
+          - link "Visualizador" [ref=f12e65] [cursor=pointer]:
+            - /url: /methods/graphing/function-plotter
+        - generic [ref=f12e66]:
+          - heading "Recursos" [level=4] [ref=f12e67]
+          - link "Centro de aprendizaje" [ref=f12e68] [cursor=pointer]:
+            - /url: /learn
+          - link "Documentación de ayuda" [ref=f12e69] [cursor=pointer]:
+            - /url: /help
+          - link "Teoría" [ref=f12e70] [cursor=pointer]:
+            - /url: /learn
+    - generic [ref=f12e71]:
+      - generic [ref=f12e72]: © 2026 Toroid Numerical.
+      - generic [ref=f12e73]:
+        - link "Política de privacidad" [ref=f12e74] [cursor=pointer]:
+          - /url: "#"
+        - link "Términos del servicio" [ref=f12e75] [cursor=pointer]:
+          - /url: "#"

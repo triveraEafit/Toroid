@@ -63,11 +63,11 @@ export function MethodPage() {
         if (!res.success) setError(res.message)
         else setPoints(res.points)
       } else if (method.kind === 'evaluator') {
-        const res = await api.evaluatePoint({ function: String(values.function), x: Number(values.x) })
+        const res = await api.evaluatePoint({ function: String(values.function), x: Number(values.x_point) })
         if (!res.success) setError(res.message)
         else {
           setPointValue(res.value ?? null)
-          setMessage(`f(${values.x}) = ${res.value}`)
+          setMessage(`f(${values.x_point}) = ${res.value}`)
         }
       } else {
         // Iterative system methods use "x0_vec" in the UI to avoid clashing

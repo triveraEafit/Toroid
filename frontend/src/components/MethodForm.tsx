@@ -59,6 +59,7 @@ export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate
                 <input
                   id={key}
                   type={spec.kind === 'number' ? 'number' : 'text'}
+                  required
                   step={spec.kind === 'number' ? (spec.step ?? 'any') : undefined}
                   value={value as string | number}
                   onChange={(e) =>
