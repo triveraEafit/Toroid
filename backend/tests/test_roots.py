@@ -97,3 +97,18 @@ def test_exact_root_detected():
     r = roots.bisection(BisectionRequest(function="x - 1", a=0, b=2, tolerance=1e-8, max_iterations=50))
     assert r.success
     assert r.result == pytest.approx(1.0, abs=1e-6)
+
+
+def test_table_reports_both_errors():
+    # Every root method must expose both an absolute and a relative error column.
+    r = roots.newton(NewtonRequest(function="x^2 - 2", x0=1.5, tolerance=1e-10, max_iterations=50))
+    assert "abs. error" in r.columns
+    assert "rel. error" in r.columns
+    abs_idx = r.columns.index("abs. error")
+    rel_idx = r.columns.index("rel. error")
+    # On a converged step both errors are present and the relative error equals
+    # abs/|x|.
+    last = r.rows[-1]
+    x = last[r.columns.index("xn")]
+    if last[abs_idx] is not None and last[rel_idx] is not None and x:
+        assert last[rel_idx] == pytest.approx(last[abs_idx] / abs(x), rel=1e-6)

@@ -45,6 +45,32 @@
   background: rgba(44, 146, 184, 0.06);
 }
 
+/* Error columns highlighted so absolute vs relative can be compared. */
+.result-table th.col-abs-error,
+.result-table th.col-rel-error {
+  color: var(--color-ink);
+}
+
+.result-table td.col-abs-error {
+  background: rgba(44, 146, 184, 0.07);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.result-table td.col-rel-error {
+  background: rgba(232, 140, 44, 0.08);
+  color: #c26a16;
+  font-weight: 600;
+}
+
+.result-table th.col-abs-error {
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
+
+.result-table th.col-rel-error {
+  box-shadow: inset 0 -2px 0 #e88c2c;
+}
+
 /* Vector / value inputs */
 .vector-input {
   display: flex;

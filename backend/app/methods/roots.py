@@ -20,11 +20,16 @@ from ..schemas.methods import (
 )
 
 
-def _error(value: float, previous: float, error_type: str) -> float:
-    """Absolute or relative error between successive approximations."""
-    if error_type == "relative" and value != 0:
-        return abs((value - previous) / value)
+def _abs_error(value: float, previous: float) -> float:
+    """Absolute error between successive approximations: |xi - xi-1|."""
     return abs(value - previous)
+
+
+def _rel_error(value: float, previous: float) -> float:
+    """Relative error: |xi - xi-1| / |xi| (None when xi == 0)."""
+    if value == 0:
+        return None
+    return abs((value - previous) / value)
 
 
 def _numeric_derivative(f, x: float, h: float = 1e-6) -> float:
@@ -91,7 +96,7 @@ def _bracketing(req, use_false_position: bool) -> MethodResult:
         return MethodResult(success=False,
                             message="The function does not change sign on the interval; there may be no root between a and b")
 
-    columns = ["iter", "a", "xm", "b", "f(xm)", "error"]
+    columns = ["iter", "a", "xm", "b", "f(xm)", "abs. error", "rel. error"]
     rows: list[list] = []
     xm_prev = a
     for i in range(1, req.max_iterations + 1):
@@ -104,13 +109,14 @@ def _bracketing(req, use_false_position: bool) -> MethodResult:
         except (ArithmeticError, ValueError) as exc:
             return MethodResult(success=False, message=f"Error evaluating the function: {exc}", columns=columns, rows=rows)
 
-        err = _error(xm, xm_prev, req.error_type) if i > 1 else None
-        rows.append([i, a, xm, b, fm, err])
+        abs_err = _abs_error(xm, xm_prev) if i > 1 else None
+        rel_err = _rel_error(xm, xm_prev) if i > 1 else None
+        rows.append([i, a, xm, b, fm, abs_err, rel_err])
 
         if fm == 0:
             return MethodResult(success=True, columns=columns, rows=rows, result=xm,
                                 message=f"{xm} is a root of the function")
-        if err is not None and err < req.tolerance:
+        if abs_err is not None and abs_err < req.tolerance:
             return MethodResult(success=True, columns=columns, rows=rows, result=xm,
                                 message=f"An approximation of the root was found for x = {xm}")
         if fa * fm < 0:
@@ -134,23 +140,25 @@ def false_position(req: FalsePositionRequest) -> MethodResult:
 def fixed_point(req: FixedPointRequest) -> MethodResult:
     f = _compile(req.function)
     g = _compile(req.g_function)
-    columns = ["iter", "xn", "g(xn)", "f(xn)", "error"]
+    columns = ["iter", "xn", "g(xn)", "f(xn)", "abs. error", "rel. error"]
     rows: list[list] = []
     x_prev = req.x0
     try:
-        rows.append([0, x_prev, None, f(x_prev), None])
+        rows.append([0, x_prev, None, f(x_prev), None, None])
     except (ArithmeticError, ValueError) as exc:
         return MethodResult(success=False, message=f"Error evaluating the function: {exc}")
 
     for i in range(1, req.max_iterations + 1):
         try:
-            x_cur = g(x_prev)
+            g_val = g(x_prev)
+            x_cur = g_val
             f_cur = f(x_cur)
         except (ArithmeticError, ValueError) as exc:
             return MethodResult(success=False, message=f"Error evaluating the function: {exc}", columns=columns, rows=rows)
-        err = _error(x_cur, x_prev, req.error_type)
-        rows.append([i, x_cur, g(x_prev), f_cur, err])
-        if f_cur == 0 or err < req.tolerance:
+        abs_err = _abs_error(x_cur, x_prev)
+        rel_err = _rel_error(x_cur, x_prev)
+        rows.append([i, x_cur, g_val, f_cur, abs_err, rel_err])
+        if f_cur == 0 or abs_err < req.tolerance:
             return MethodResult(success=True, columns=columns, rows=rows, result=x_cur,
                                 message=f"An approximation of the root was found for x = {x_cur}")
         x_prev = x_cur
@@ -161,7 +169,7 @@ def fixed_point(req: FixedPointRequest) -> MethodResult:
 
 def newton(req: NewtonRequest) -> MethodResult:
     f = _compile(req.function)
-    columns = ["iter", "xn", "f(xn)", "f'(xn)", "error"]
+    columns = ["iter", "xn", "f(xn)", "f'(xn)", "abs. error", "rel. error"]
     rows: list[list] = []
     x_prev = req.x0
     for i in range(req.max_iterations + 1):
@@ -172,7 +180,7 @@ def newton(req: NewtonRequest) -> MethodResult:
             return MethodResult(success=False, message=f"Error evaluating the function: {exc}", columns=columns, rows=rows)
 
         if i == 0:
-            rows.append([0, x_prev, fx, dfx, None])
+            rows.append([0, x_prev, fx, dfx, None, None])
             if fx == 0:
                 return MethodResult(success=True, columns=columns, rows=rows, result=x_prev,
                                     message=f"{x_prev} is a root of the function")
@@ -182,13 +190,14 @@ def newton(req: NewtonRequest) -> MethodResult:
             return MethodResult(success=False, columns=columns, rows=rows,
                                 message="The derivative is 0, the method cannot be continued")
         x_cur = x_prev - fx / dfx
-        err = _error(x_cur, x_prev, req.error_type)
+        abs_err = _abs_error(x_cur, x_prev)
+        rel_err = _rel_error(x_cur, x_prev)
         try:
             fcur = f(x_cur)
         except (ArithmeticError, ValueError) as exc:
             return MethodResult(success=False, message=f"Error evaluating the function: {exc}", columns=columns, rows=rows)
-        rows.append([i, x_cur, fcur, _numeric_derivative(f, x_cur), err])
-        if fcur == 0 or err < req.tolerance:
+        rows.append([i, x_cur, fcur, _numeric_derivative(f, x_cur), abs_err, rel_err])
+        if fcur == 0 or abs_err < req.tolerance:
             return MethodResult(success=True, columns=columns, rows=rows, result=x_cur,
                                 message=f"An approximation of the root was found for x = {x_cur}")
         x_prev = x_cur
@@ -199,15 +208,15 @@ def newton(req: NewtonRequest) -> MethodResult:
 
 def secant(req: SecantRequest) -> MethodResult:
     f = _compile(req.function)
-    columns = ["iter", "xn", "f(xn)", "error"]
+    columns = ["iter", "xn", "f(xn)", "abs. error", "rel. error"]
     rows: list[list] = []
     x0, x1 = req.x0, req.x1
     try:
         f0, f1 = f(x0), f(x1)
     except (ArithmeticError, ValueError) as exc:
         return MethodResult(success=False, message=f"Error evaluating the function: {exc}")
-    rows.append([0, x0, f0, None])
-    rows.append([1, x1, f1, _error(x1, x0, req.error_type)])
+    rows.append([0, x0, f0, None, None])
+    rows.append([1, x1, f1, _abs_error(x1, x0), _rel_error(x1, x0)])
 
     for i in range(2, req.max_iterations + 1):
         denom = f1 - f0
@@ -219,9 +228,10 @@ def secant(req: SecantRequest) -> MethodResult:
             f2 = f(x2)
         except (ArithmeticError, ValueError) as exc:
             return MethodResult(success=False, message=f"Error evaluating the function: {exc}", columns=columns, rows=rows)
-        err = _error(x2, x1, req.error_type)
-        rows.append([i, x2, f2, err])
-        if f2 == 0 or err < req.tolerance:
+        abs_err = _abs_error(x2, x1)
+        rel_err = _rel_error(x2, x1)
+        rows.append([i, x2, f2, abs_err, rel_err])
+        if f2 == 0 or abs_err < req.tolerance:
             return MethodResult(success=True, columns=columns, rows=rows, result=x2,
                                 message=f"An approximation of the root was found for x = {x2}")
         x0, f0, x1, f1 = x1, f1, x2, f2
@@ -233,7 +243,7 @@ def secant(req: SecantRequest) -> MethodResult:
 def multiple_roots(req: MultipleRootsRequest) -> MethodResult:
     """Newton's modified method for roots of multiplicity > 1 (m = f*f' / (f'^2 - f*f'')."""
     f = _compile(req.function)
-    columns = ["iter", "xn", "f(xn)", "error"]
+    columns = ["iter", "xn", "f(xn)", "abs. error", "rel. error"]
     rows: list[list] = []
     x_prev = req.x0
 
@@ -244,7 +254,7 @@ def multiple_roots(req: MultipleRootsRequest) -> MethodResult:
         return (f(x + h) - 2 * f(x) + f(x - h)) / (h * h)
 
     try:
-        rows.append([0, x_prev, f(x_prev), None])
+        rows.append([0, x_prev, f(x_prev), None, None])
         if f(x_prev) == 0:
             return MethodResult(success=True, columns=columns, rows=rows, result=x_prev,
                                 message=f"{x_prev} is a root of the function")
@@ -261,13 +271,14 @@ def multiple_roots(req: MultipleRootsRequest) -> MethodResult:
             return MethodResult(success=False, columns=columns, rows=rows,
                                 message="The denominator is 0, the method cannot be continued")
         x_cur = x_prev - (fx * fp) / denom
-        err = _error(x_cur, x_prev, req.error_type)
+        abs_err = _abs_error(x_cur, x_prev)
+        rel_err = _rel_error(x_cur, x_prev)
         try:
             fcur = f(x_cur)
         except (ArithmeticError, ValueError) as exc:
             return MethodResult(success=False, message=f"Error evaluating the function: {exc}", columns=columns, rows=rows)
-        rows.append([i, x_cur, fcur, err])
-        if fcur == 0 or err < req.tolerance:
+        rows.append([i, x_cur, fcur, abs_err, rel_err])
+        if fcur == 0 or abs_err < req.tolerance:
             return MethodResult(success=True, columns=columns, rows=rows, result=x_cur,
                                 message=f"An approximation of the root was found for x = {x_cur}")
         x_prev = x_cur

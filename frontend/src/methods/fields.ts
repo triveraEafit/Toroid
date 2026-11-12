@@ -29,13 +29,6 @@ export const FIELD_SPECS: Record<string, FieldSpec> = {
   w: { key: 'w', label: 'Relaxation factor w', kind: 'number', default: 1.1, step: 'any' },
   tolerance: { key: 'tolerance', label: 'Tolerance', kind: 'number', default: 1e-7, step: 'any' },
   max_iterations: { key: 'max_iterations', label: 'Max iterations', kind: 'number', default: 100 },
-  error_type: {
-    key: 'error_type', label: 'Error type', kind: 'select', default: 'absolute',
-    options: [
-      { value: 'absolute', label: 'Absolute' },
-      { value: 'relative', label: 'Relative' },
-    ],
-  },
   matrix: { key: 'matrix', label: 'Coefficient matrix A', kind: 'matrix', default: [[4, -1, 0], [-1, 4, -1], [0, -1, 4]] },
   vector: { key: 'vector', label: 'Vector b', kind: 'vector', default: [2, 4, 10] },
   // Initial guess vector for iterative system methods. Sent to the API as "x0".

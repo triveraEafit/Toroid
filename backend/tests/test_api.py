@@ -57,7 +57,7 @@ def test_catalog_endpoints_exist(endpoint):
 def test_bisection_endpoint():
     r = client.post("/api/methods/roots/bisection", json={
         "function": "x^2 - 2", "a": 0, "b": 2, "tolerance": 1e-8,
-        "max_iterations": 100, "error_type": "absolute",
+        "max_iterations": 100,
     })
     assert r.status_code == 200
     body = r.json()
@@ -68,7 +68,7 @@ def test_bisection_endpoint():
 def test_gauss_seidel_endpoint():
     r = client.post("/api/methods/systems/gauss-seidel", json={
         "matrix": [[4, -1, 0], [-1, 4, -1], [0, -1, 4]], "vector": [2, 4, 10],
-        "x0": [0, 0, 0], "tolerance": 1e-9, "max_iterations": 200, "error_type": "absolute",
+        "x0": [0, 0, 0], "tolerance": 1e-9, "max_iterations": 200,
     })
     assert r.status_code == 200
     body = r.json()

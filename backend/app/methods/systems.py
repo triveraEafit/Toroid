@@ -262,8 +262,8 @@ def _iterative(req: IterativeSystemRequest, w: float, use_latest: bool) -> Metho
             return MethodResult(success=False,
                                 message="The matrix cannot have a 0 on the main diagonal")
 
-    columns = ["iter", *[f"x{j+1}" for j in range(n)], "error"]
-    rows: list[list] = [[0, *[round(v, 10) for v in req.x0], None]]
+    columns = ["iter", *[f"x{j+1}" for j in range(n)], "abs. error", "rel. error"]
+    rows: list[list] = [[0, *[round(v, 10) for v in req.x0], None, None]]
     x = list(req.x0)
 
     for it in range(1, req.max_iterations + 1):
@@ -273,14 +273,13 @@ def _iterative(req: IterativeSystemRequest, w: float, use_latest: bool) -> Metho
             s = sum(a[i][j] * src[j] for j in range(n) if j != i)
             gs = (b[i] - s) / a[i][i]
             x_new[i] = (1 - w) * x[i] + w * gs
-        # Infinity-norm error between successive iterates.
-        error = max(abs(x_new[j] - x[j]) for j in range(n))
-        if req.error_type == "relative":
-            denom = max(abs(v) for v in x_new) or 1.0
-            error = error / denom
-        rows.append([it, *[round(v, 10) for v in x_new], error])
+        # Infinity-norm errors between successive iterates.
+        abs_error = max(abs(x_new[j] - x[j]) for j in range(n))
+        norm = max(abs(v) for v in x_new)
+        rel_error = abs_error / norm if norm else None
+        rows.append([it, *[round(v, 10) for v in x_new], abs_error, rel_error])
         x = x_new
-        if error < req.tolerance:
+        if abs_error < req.tolerance:
             return MethodResult(success=True, columns=columns, rows=rows, result=x,
                                 message="The method converged to a solution")
 

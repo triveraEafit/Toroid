@@ -31,8 +31,6 @@ class RootRequest(BaseModel):
     function: str = Field(..., examples=["x^3 - x - 2"])
     tolerance: float = Field(1e-7, gt=0)
     max_iterations: int = Field(100, gt=0)
-    # Error type: "absolute" or "relative".
-    error_type: str = "absolute"
 
 
 class IncrementalRequest(RootRequest):
@@ -78,7 +76,6 @@ class IterativeSystemRequest(LinearSystemRequest):
     x0: list[float]
     tolerance: float = Field(1e-7, gt=0)
     max_iterations: int = Field(100, gt=0)
-    error_type: str = "absolute"
 
 
 class SorRequest(IterativeSystemRequest):
