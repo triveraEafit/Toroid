@@ -5,6 +5,7 @@ import { specFor } from '../methods/fields'
 import { MatrixInput } from './MatrixInput'
 import { VectorInput } from './VectorInput'
 import './MethodForm.css'
+import { useLanguage } from '../i18n'
 
 interface MethodFormProps {
   fields: string[]
@@ -22,6 +23,7 @@ function initialValues(fields: string[]): Record<string, unknown> {
 }
 
 export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate' }: MethodFormProps) {
+  const { t } = useLanguage()
   const [values, setValues] = useState<Record<string, unknown>>(() => initialValues(fields))
 
   const update = (key: string, value: unknown) => setValues((v) => ({ ...v, [key]: value }))
@@ -39,12 +41,12 @@ export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate
         return (
           <div className="form-field" key={key}>
             {spec.kind === 'matrix' ? (
-              <MatrixInput value={value as number[][]} onChange={(v) => update(key, v)} label={spec.label} />
+              <MatrixInput value={value as number[][]} onChange={(v) => update(key, v)} label={t(`field.${key}` as Parameters<typeof t>[0])} />
             ) : spec.kind === 'vector' || spec.kind === 'points' ? (
-              <VectorInput value={value as number[]} onChange={(v) => update(key, v)} label={spec.label} />
+              <VectorInput value={value as number[]} onChange={(v) => update(key, v)} label={t(`field.${key}` as Parameters<typeof t>[0])} />
             ) : spec.kind === 'select' ? (
               <>
-                <label className="field-label" htmlFor={key}>{spec.label}</label>
+                <label className="field-label" htmlFor={key}>{t(`field.${key}` as Parameters<typeof t>[0])}</label>
                 <select id={key} value={String(value)} onChange={(e) => update(key, e.target.value)}>
                   {spec.options?.map((o) => (
                     <option key={o.value} value={o.value}>{o.label}</option>
@@ -53,7 +55,7 @@ export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate
               </>
             ) : (
               <>
-                <label className="field-label" htmlFor={key}>{spec.label}</label>
+                <label className="field-label" htmlFor={key}>{t(`field.${key}` as Parameters<typeof t>[0])}</label>
                 <input
                   id={key}
                   type={spec.kind === 'number' ? 'number' : 'text'}
@@ -63,14 +65,14 @@ export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate
                     update(key, spec.kind === 'number' ? (e.target.value === '' ? '' : Number(e.target.value)) : e.target.value)
                   }
                 />
-                {spec.help && <span className="field-help">{spec.help}</span>}
+                {spec.help && <span className="field-help">{key === 'function' ? t('field.functionHelp') : spec.help}</span>}
               </>
             )}
           </div>
         )
       })}
       <button type="submit" className="btn-primary" disabled={loading}>
-        {loading ? 'Calculating…' : submitLabel}
+        {loading ? t('field.calculating') : submitLabel}
       </button>
     </form>
   )

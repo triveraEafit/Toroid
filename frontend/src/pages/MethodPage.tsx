@@ -10,10 +10,12 @@ import { MethodForm } from '../components/MethodForm'
 import { MethodResultView } from '../components/MethodResultView'
 import { useCatalog } from '../methods/useCatalog'
 import './MethodPage.css'
+import { useLanguage } from '../i18n'
 
 export function MethodPage() {
   const { category, slug } = useParams()
   const { catalog } = useCatalog()
+  const { t } = useLanguage()
   const [result, setResult] = useState<MethodResult | null>(null)
   const [points, setPoints] = useState<GraphPoint[] | null>(null)
   const [pointValue, setPointValue] = useState<number | null>(null)
@@ -30,9 +32,9 @@ export function MethodPage() {
     return (
       <div className="method-page container">
         <div className="card">
-          <h2>Tool not found</h2>
+          <h2>{t('method.notFound')}</h2>
           <p className="muted">
-            Pick a tool from the <Link to="/methods">Methods directory</Link>.
+            {t('method.pick')} <Link to="/methods">{t('nav.methods')}</Link>.
           </p>
         </div>
       </div>
@@ -90,31 +92,31 @@ export function MethodPage() {
   return (
     <div className="method-page container">
       <header className="method-head">
-        <Link to="/methods" className="back-link">← All methods</Link>
+        <Link to="/methods" className="back-link">{t('method.back')}</Link>
         <span className="eyebrow">{category}</span>
-        <h1>{method.name}</h1>
+        <h1>{t(`catalog.${method.slug}` as Parameters<typeof t>[0])}</h1>
       </header>
 
       <div className="method-grid">
         <section className="card method-inputs">
-          <h2>Inputs</h2>
+          <h2>{t('method.inputs')}</h2>
           <MethodForm
             key={method.slug}
             fields={method.fields}
             onSubmit={handleSubmit}
             loading={loading}
-            submitLabel={method.kind === 'plotter' ? 'Plot' : method.kind === 'evaluator' ? 'Evaluate' : 'Calculate'}
+            submitLabel={method.kind === 'plotter' ? t('method.plot') : method.kind === 'evaluator' ? t('method.evaluate') : t('method.calculate')}
           />
         </section>
 
         <section className="card method-output">
-          <h2>Result</h2>
-          {!hasOutput && <p className="muted">Enter parameters and run the tool to see the output.</p>}
+          <h2>{t('method.result')}</h2>
+          {!hasOutput && <p className="muted">{t('method.empty')}</p>}
           {error && <div className="result-banner result-error" role="alert">{error}</div>}
           {message && !error && <div className="result-banner result-ok">{message}</div>}
           {pointValue !== null && (
             <div className="result-headline">
-              <span className="result-headline-label">Value</span>
+              <span className="result-headline-label">{t('method.value')}</span>
               <code>{pointValue}</code>
             </div>
           )}

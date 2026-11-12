@@ -1,5 +1,6 @@
 // Reusable editable matrix with size controls.
 import './MatrixInput.css'
+import { useLanguage } from '../i18n'
 
 interface MatrixInputProps {
   value: number[][]
@@ -8,6 +9,7 @@ interface MatrixInputProps {
 }
 
 export function MatrixInput({ value, onChange, label }: MatrixInputProps) {
+  const { t } = useLanguage()
   const rows = value.length
   const cols = value[0]?.length ?? 0
 
@@ -34,7 +36,7 @@ export function MatrixInput({ value, onChange, label }: MatrixInputProps) {
       {label && <label className="field-label">{label}</label>}
       <div className="matrix-size">
         <label>
-          Size
+          {t('matrix.size')}
           <input
             type="number"
             min={2}
@@ -46,7 +48,7 @@ export function MatrixInput({ value, onChange, label }: MatrixInputProps) {
             }}
           />
         </label>
-        <span className="matrix-size-hint">(square {rows}×{cols})</span>
+        <span className="matrix-size-hint">{t('matrix.square', { rows, cols })}</span>
       </div>
       <div className="matrix-grid" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
         {value.map((row, i) =>

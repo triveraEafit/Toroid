@@ -7,8 +7,10 @@ import type { GraphPoint } from '../api/types'
 import { FunctionGraph } from '../components/FunctionGraph'
 import { ResultTable } from '../components/ResultTable'
 import './Home.css'
+import { useLanguage } from '../i18n'
 
 export function Home() {
+  const { t } = useLanguage()
   const [curve, setCurve] = useState<GraphPoint[]>([])
 
   // Plot a sample curve in the hero canvas, matching the design's sine wave.
@@ -39,73 +41,54 @@ export function Home() {
     <div className="home">
       {/* Hero */}
       <section className="hero container">
-        <p className="eyebrow">Visual calculator for analysis</p>
-        <h1 className="hero-title">From functions to numerical approximations</h1>
-        <p className="hero-sub">
-          A modern workspace dedicated to plotting root-finding progressions, integral limits,
-          and interpolation coordinates. Map classic algorithms instantly onto precise Cartesian
-          viewports.
-        </p>
+        <p className="eyebrow">{t('home.eyebrow')}</p>
+        <h1 className="hero-title">{t('home.title')}</h1>
+        <p className="hero-sub">{t('home.subtitle')}</p>
         <div className="hero-actions">
           <Link to="/methods" className="btn-primary">
-            Explore Methods <span aria-hidden="true">→</span>
+            {t('home.methods')} <span aria-hidden="true">→</span>
           </Link>
-          <Link to="/learn" className="btn-outline">Read Docs</Link>
+          <Link to="/learn" className="btn-outline">{t('home.docs')}</Link>
         </div>
 
         <div className="graph-canvas">
           {curve.length > 0 ? (
             <FunctionGraph points={curve} height={352} />
           ) : (
-            <div className="graph-canvas-empty">Loading plot…</div>
+            <div className="graph-canvas-empty">{t('home.loading')}</div>
           )}
         </div>
       </section>
 
-      {/* Editorial */}
       <section className="editorial container">
         <div className="editorial-left">
-          <p className="eyebrow">Algorithmic methodology</p>
-          <h2>Bridging pure calculus with discrete machines</h2>
-          <p className="muted">
-            In mathematics, analytical solutions can be rare or impossible. Numerical methods offer
-            a practical compromise, converting infinite limits into finite, sequential steps that
-            computers can trace. Toroid builds the computational bridge for study and validation.
-          </p>
+          <p className="eyebrow">{t('home.methodology')}</p>
+          <h2>{t('home.editorialTitle')}</h2>
+          <p className="muted">{t('home.editorialText')}</p>
         </div>
         <div className="editorial-right">
           <article className="feature">
             <span className="feature-icon">x</span>
             <div>
-              <h3>Root Isolation Algorithms</h3>
-              <p className="muted">
-                Deconstruct methods like Bisection, Secant, and Newton-Raphson. Witness the exact
-                criteria that dictate linear versus quadratic convergence speeds in direct viewports.
-              </p>
+              <h3>{t('home.rootTitle')}</h3>
+              <p className="muted">{t('home.rootText')}</p>
             </div>
           </article>
           <article className="feature">
             <span className="feature-icon">∫</span>
             <div>
-              <h3>Convergence &amp; Error Tracking</h3>
-              <p className="muted">
-                Follow each iteration's approximation and absolute error. Track truncation margins
-                mathematically until the tolerance threshold validates a root.
-              </p>
+              <h3>{t('home.errorTitle')}</h3>
+              <p className="muted">{t('home.errorText')}</p>
             </div>
           </article>
         </div>
       </section>
 
-      {/* Simulation panel */}
       <section className="sim-panel">
         <div className="container">
-          <p className="eyebrow">Live output sandbox preview</p>
-          <h2>Instant visual &amp; numerical parity</h2>
-          <p className="muted sim-lead">
-            Watch computational iteration stacks map dynamically alongside coordinates. No delay, no
-            guesswork.
-          </p>
+          <p className="eyebrow">{t('home.sandbox')}</p>
+          <h2>{t('home.parity')}</h2>
+          <p className="muted sim-lead">{t('home.parityText')}</p>
           <div className="sim-grid">
             <div className="card sim-graph">
               <div className="sim-graph-head">
@@ -122,17 +105,12 @@ export function Home() {
         </div>
       </section>
 
-      {/* Learn CTA band */}
       <section className="learn-band">
         <div className="container">
-          <p className="eyebrow">Comprehensive theory base</p>
-          <h2>Dive into detailed method theory inside our Learn Center</h2>
-          <p>
-            Master Taylor series expansions, local versus global convergence proofs, and step
-            boundaries before you analyze. Our structured curriculum is built specifically for
-            university mathematics courses.
-          </p>
-          <Link to="/learn" className="btn-primary">Explore Learn Hub</Link>
+          <p className="eyebrow">{t('home.learnEyebrow')}</p>
+          <h2>{t('home.learnTitle')}</h2>
+          <p>{t('home.learnText')}</p>
+          <Link to="/learn" className="btn-primary">{t('home.learnCta')}</Link>
         </div>
       </section>
     </div>

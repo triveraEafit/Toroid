@@ -112,6 +112,11 @@ El frontend queda disponible en **http://localhost:5173**.
 > define la variable de entorno `VITE_API_URL` antes de `npm run dev`
 > (por ejemplo, en un archivo `frontend/.env`: `VITE_API_URL=http://localhost:8000`).
 
+### Idioma de la interfaz
+
+La interfaz inicia en español. El selector `ES / EN` de la barra de navegación permite cambiar
+entre español e inglés; la selección se conserva en el navegador para las siguientes visitas.
+
 ---
 
 ## Scripts útiles
