@@ -13,6 +13,13 @@ interface ToolDoc {
   note?: string
 }
 
+function displayToolName(slug: string): string {
+  return slug
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+}
+
 const TOOL_DOCS: Record<Language, { heading: string; tools: ToolDoc[] }[]> = {
   es: [
   {
@@ -77,6 +84,28 @@ const TOOL_DOCS: Record<Language, { heading: string; tools: ToolDoc[] }[]> = {
         ] },
     ],
   },
+  {
+    heading: '03 / Solución de sistemas de ecuaciones',
+    tools: (['gaussian-simple', 'gaussian-partial', 'gaussian-total', 'lu-simple', 'lu-partial', 'crout', 'doolittle', 'cholesky', 'jacobi', 'gauss-seidel', 'sor'])
+      .map((slug) => ({
+        id: slug, name: displayToolName(slug), slug, category: 'systems',
+        lines: [
+          { label: 'Propósito', text: 'Obtén una solución numérica para un sistema lineal a partir de su matriz de coeficientes y vector independiente.' },
+          { label: 'Entradas requeridas', text: 'Matriz A y vector b; los métodos iterativos también usan una aproximación inicial.' },
+        ],
+      })),
+  },
+  {
+    heading: '04 / Interpolación',
+    tools: (['vandermonde', 'newton', 'lagrange', 'spline-linear', 'spline-quadratic', 'spline-cubic'])
+      .map((slug) => ({
+        id: slug, name: displayToolName(slug), slug, category: 'interpolation',
+        lines: [
+          { label: 'Propósito', text: 'Construye una aproximación que pasa por los puntos suministrados.' },
+          { label: 'Entradas requeridas', text: 'Listas de valores x e y con la misma longitud y coordenadas x distintas.' },
+        ],
+      })),
+  },
   ],
   en: [
     {
@@ -103,6 +132,28 @@ const TOOL_DOCS: Record<Language, { heading: string; tools: ToolDoc[] }[]> = {
         { id: 'secant', name: 'Secant method', slug: 'secant', category: 'equations', lines: [{ label: 'Purpose', text: 'Avoid derivative equations by mapping discrete backward intervals.' }, { label: 'Near-zero warning', text: 'Requires f(xi) - f(xi-1) ≠ 0, otherwise the denominator approaches zero.' }] },
         { id: 'multiple-roots', name: 'Multiple roots', slug: 'multiple-roots', category: 'equations', lines: [{ label: 'Purpose', text: 'Track polynomials with roots of high multiplicity.' }, { label: 'Adapted Newton', text: 'x_next = xi - [ f(xi) × f’(xi) ] / [ (f’(xi))^2 - f(xi) × f’’(xi) ].' }] },
       ],
+    },
+    {
+      heading: '03 / Solving systems of equations',
+      tools: ['gaussian-simple', 'gaussian-partial', 'gaussian-total', 'lu-simple', 'lu-partial', 'crout', 'doolittle', 'cholesky', 'jacobi', 'gauss-seidel', 'sor']
+        .map((slug) => ({
+          id: slug, name: displayToolName(slug), slug, category: 'systems',
+          lines: [
+            { label: 'Purpose', text: 'Obtain a numerical solution for a linear system from its coefficient matrix and independent vector.' },
+            { label: 'Required inputs', text: 'Matrix A and vector b; iterative methods also use an initial approximation.' },
+          ],
+        })),
+    },
+    {
+      heading: '04 / Interpolation',
+      tools: ['vandermonde', 'newton', 'lagrange', 'spline-linear', 'spline-quadratic', 'spline-cubic']
+        .map((slug) => ({
+          id: slug, name: displayToolName(slug), slug, category: 'interpolation',
+          lines: [
+            { label: 'Purpose', text: 'Build an approximation that passes through the supplied points.' },
+            { label: 'Required inputs', text: 'Lists of x and y values with equal length and distinct x coordinates.' },
+          ],
+        })),
     },
   ],
 }

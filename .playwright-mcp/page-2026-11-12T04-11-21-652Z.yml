@@ -1,0 +1,93 @@
+- generic [active] [ref=f15e1]:
+  - generic [ref=f15e3]:
+    - banner [ref=f15e4]:
+      - generic [ref=f15e5]:
+        - link "Ir al inicio" [ref=f15e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f15e7]: Toroid
+        - navigation [ref=f15e10]:
+          - link "Inicio" [ref=f15e11] [cursor=pointer]:
+            - /url: /
+          - link "Métodos" [ref=f15e12] [cursor=pointer]:
+            - /url: /methods
+          - link "Aprender" [ref=f15e13] [cursor=pointer]:
+            - /url: /learn
+          - link "Ayuda" [ref=f15e14] [cursor=pointer]:
+            - /url: /help
+          - generic [ref=f15e15]:
+            - generic [ref=f15e16]: Idioma
+            - combobox "Idioma" [ref=f15e17] [cursor=pointer]:
+              - option "ES" [selected]
+              - option "EN"
+    - main [ref=f15e18]:
+      - generic [ref=f15e19]:
+        - generic [ref=f15e20]:
+          - link "← Todos los métodos" [ref=f15e21] [cursor=pointer]:
+            - /url: /methods
+          - generic [ref=f15e22]: graphing
+          - heading "Graficador de funciones" [level=1] [ref=f15e23]
+        - generic [ref=f15e24]:
+          - generic [ref=f15e25]:
+            - heading "Entradas" [level=2] [ref=f15e26]
+            - generic [ref=f15e27]:
+              - strong [ref=f15e28]: Ejemplo guiado
+              - paragraph [ref=f15e29]: Explora la función f(x) = x² − 2 en el intervalo [-10, 10]. Sus cortes con el eje x permiten observar dos raíces.
+              - generic [ref=f15e30]:
+                - button "Cargar ejemplo" [ref=f15e31] [cursor=pointer]
+                - button "Probar ejemplo" [ref=f15e32] [cursor=pointer]
+            - generic [ref=f15e33]:
+              - generic [ref=f15e34]:
+                - generic [ref=f15e35]: Función f(x)
+                - textbox "Función f(x)" [ref=f15e36]: x^2 - 2
+                - generic [ref=f15e37]: "Usa ^ para potencias, por ejemplo x^3 - x - 2. Funciones: sin, cos, exp, ln, sqrt."
+              - generic [ref=f15e38]:
+                - generic [ref=f15e39]: x mínimo
+                - spinbutton "x mínimo" [ref=f15e40]: "-10"
+              - generic [ref=f15e41]:
+                - generic [ref=f15e42]: x máximo
+                - spinbutton "x máximo" [ref=f15e43]: "10"
+              - button "Graficar" [ref=f15e44] [cursor=pointer]
+          - generic [ref=f15e45]:
+            - heading "Resultado" [level=2] [ref=f15e46]
+            - application [ref=f15e73]:
+              - generic [ref=f15e89]:
+                - generic [ref=f15e90]:
+                  - generic [ref=f15e91]: "-10"
+                  - generic [ref=f15e93]: "-5"
+                  - generic [ref=f15e95]: "0"
+                  - generic [ref=f15e97]: "5"
+                  - generic [ref=f15e99]: "10"
+                - generic [ref=f15e101]:
+                  - generic [ref=f15e102]: "-35"
+                  - generic [ref=f15e104]: "0"
+                  - generic [ref=f15e106]: "35"
+                  - generic [ref=f15e108]: "70"
+                  - generic [ref=f15e110]: "105"
+    - contentinfo [ref=f15e48]:
+      - generic [ref=f15e49]:
+        - generic [ref=f15e50]:
+          - generic [ref=f15e51]: Toroid
+          - paragraph [ref=f15e54]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+        - generic [ref=f15e55]:
+          - generic [ref=f15e56]:
+            - heading "Plataforma" [level=4] [ref=f15e57]
+            - link "Métodos" [ref=f15e58] [cursor=pointer]:
+              - /url: /methods
+            - link "Visualizador" [ref=f15e59] [cursor=pointer]:
+              - /url: /methods/graphing/function-plotter
+          - generic [ref=f15e60]:
+            - heading "Recursos" [level=4] [ref=f15e61]
+            - link "Centro de aprendizaje" [ref=f15e62] [cursor=pointer]:
+              - /url: /learn
+            - link "Documentación de ayuda" [ref=f15e63] [cursor=pointer]:
+              - /url: /help
+            - link "Teoría" [ref=f15e64] [cursor=pointer]:
+              - /url: /learn
+      - generic [ref=f15e65]:
+        - generic [ref=f15e66]: © 2026 Toroid Numerical.
+        - generic [ref=f15e67]:
+          - link "Política de privacidad" [ref=f15e68] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos del servicio" [ref=f15e69] [cursor=pointer]:
+            - /url: "#"
+  - generic [aria-hidden] [ref=f15e112]: "-35"

@@ -1,0 +1,67 @@
+[     640ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:15802
+[  112990ms] Error: useLanguage must be used within LanguageProvider
+    at useLanguage (http://localhost:5173/src/i18n.tsx?t=1794456961464:251:22)
+    at Layout (http://localhost:5173/src/components/Layout.tsx?t=1794456961464:14:39)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:14139:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:4397:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5772:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:6388:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:941:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9145:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9041:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9025:6)
+[  112935ms] [WARNING] %s
+
+%s
+ An error occurred in the <Layout> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5448
+[  113504ms] Error: useLanguage must be used within LanguageProvider
+    at useLanguage (http://localhost:5173/src/i18n.tsx?t=1794456961464:251:22)
+    at Layout (http://localhost:5173/src/components/Layout.tsx?t=1794456961464:14:39)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:14139:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:4397:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5772:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:6388:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:941:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9145:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9041:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9025:6)
+[  113393ms] [WARNING] %s
+
+%s
+ An error occurred in the <Layout> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5448
+[  114996ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:15802
+[  398690ms] Error: useLanguage must be used within LanguageProvider
+    at useLanguage (http://localhost:5173/src/i18n.tsx?t=1794457102891:249:22)
+    at Layout (http://localhost:5173/src/components/Layout.tsx?t=1794457102891:14:39)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:14139:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:4397:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5772:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:6388:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:941:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9145:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9041:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9025:6)
+[  398628ms] [WARNING] %s
+
+%s
+ An error occurred in the <Layout> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5448
+[  399506ms] Error: useLanguage must be used within LanguageProvider
+    at useLanguage (http://localhost:5173/src/i18n.tsx?t=1794457102891:249:22)
+    at Layout (http://localhost:5173/src/components/Layout.tsx?t=1794457102891:14:39)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:14139:12)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:4397:19)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5772:16)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:6388:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:941:66)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9145:92)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9041:37)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:9025:6)
+[  399361ms] [WARNING] %s
+
+%s
+ An error occurred in the <Layout> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:5448
+[  400735ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=47202efc:15802

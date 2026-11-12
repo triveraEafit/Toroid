@@ -1,0 +1,85 @@
+- generic [ref=f21e3]:
+  - banner [ref=f21e4]:
+    - generic [ref=f21e5]:
+      - link "Ir al inicio" [ref=f21e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f21e7]: Toroid
+      - navigation [ref=f21e10]:
+        - link "Inicio" [ref=f21e11] [cursor=pointer]:
+          - /url: /
+        - link "Métodos" [ref=f21e12] [cursor=pointer]:
+          - /url: /methods
+        - link "Aprender" [ref=f21e13] [cursor=pointer]:
+          - /url: /learn
+        - link "Ayuda" [ref=f21e14] [cursor=pointer]:
+          - /url: /help
+        - generic [ref=f21e15]:
+          - generic [ref=f21e16]: Idioma
+          - combobox "Idioma" [ref=f21e17] [cursor=pointer]:
+            - option "ES" [selected]
+            - option "EN"
+  - main [ref=f21e18]:
+    - generic [ref=f21e19]:
+      - generic [ref=f21e20]:
+        - link "← Todos los métodos" [ref=f21e21] [cursor=pointer]:
+          - /url: /methods
+        - generic [ref=f21e22]: equations
+        - heading "Bisección" [level=1] [ref=f21e23]
+      - generic [ref=f21e24]:
+        - generic [ref=f21e25]:
+          - heading "Entradas" [level=2] [ref=f21e26]
+          - generic [ref=f21e27]:
+            - strong [ref=f21e28]: Ejemplo guiado
+            - paragraph [ref=f21e29]: Practica este método con un caso preparado y observa cómo se aproxima a la solución.
+            - generic [ref=f21e30]:
+              - button "Probar ejemplo" [ref=f21e31] [cursor=pointer]
+              - link "Ver explicación del método →" [ref=f21e32] [cursor=pointer]:
+                - /url: /learn#bisection
+          - generic [ref=f21e33]:
+            - generic [ref=f21e34]:
+              - generic [ref=f21e35]: Función f(x)
+              - textbox "Función f(x)" [ref=f21e36]: x^2 - 2
+              - generic [ref=f21e37]: "Usa ^ para potencias, por ejemplo x^3 - x - 2. Funciones: sin, cos, exp, ln, sqrt."
+            - generic [ref=f21e38]:
+              - generic [ref=f21e39]: Límite inferior a
+              - spinbutton "Límite inferior a" [ref=f21e40]: "0"
+            - generic [ref=f21e41]:
+              - generic [ref=f21e42]: Límite superior b
+              - spinbutton "Límite superior b" [ref=f21e43]: "2"
+            - generic [ref=f21e44]:
+              - generic [ref=f21e45]: Tolerancia
+              - spinbutton "Tolerancia" [ref=f21e46]: "1e-7"
+            - generic [ref=f21e47]:
+              - generic [ref=f21e48]: Máximo de iteraciones
+              - spinbutton "Máximo de iteraciones" [ref=f21e49]: "100"
+            - button "Calcular" [ref=f21e50] [cursor=pointer]
+        - generic [ref=f21e51]:
+          - heading "Resultado" [level=2] [ref=f21e52]
+          - paragraph [ref=f21e53]: Ingresa los parámetros y ejecuta la herramienta para ver el resultado.
+  - contentinfo [ref=f21e54]:
+    - generic [ref=f21e55]:
+      - generic [ref=f21e56]:
+        - generic [ref=f21e57]: Toroid
+        - paragraph [ref=f21e60]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+      - generic [ref=f21e61]:
+        - generic [ref=f21e62]:
+          - heading "Plataforma" [level=4] [ref=f21e63]
+          - link "Métodos" [ref=f21e64] [cursor=pointer]:
+            - /url: /methods
+          - link "Visualizador" [ref=f21e65] [cursor=pointer]:
+            - /url: /methods/graphing/function-plotter
+        - generic [ref=f21e66]:
+          - heading "Recursos" [level=4] [ref=f21e67]
+          - link "Centro de aprendizaje" [ref=f21e68] [cursor=pointer]:
+            - /url: /learn
+          - link "Documentación de ayuda" [ref=f21e69] [cursor=pointer]:
+            - /url: /help
+          - link "Teoría" [ref=f21e70] [cursor=pointer]:
+            - /url: /learn
+    - generic [ref=f21e71]:
+      - generic [ref=f21e72]: © 2026 Toroid Numerical.
+      - generic [ref=f21e73]:
+        - link "Política de privacidad" [ref=f21e74] [cursor=pointer]:
+          - /url: "#"
+        - link "Términos del servicio" [ref=f21e75] [cursor=pointer]:
+          - /url: "#"

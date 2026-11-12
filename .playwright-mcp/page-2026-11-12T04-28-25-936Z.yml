@@ -1,0 +1,89 @@
+- generic [ref=f25e3]:
+  - banner [ref=f25e4]:
+    - generic [ref=f25e5]:
+      - link "Ir al inicio" [ref=f25e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f25e7]: Toroid
+      - navigation [ref=f25e10]:
+        - link "Inicio" [ref=f25e11] [cursor=pointer]:
+          - /url: /
+        - link "Métodos" [ref=f25e12] [cursor=pointer]:
+          - /url: /methods
+        - link "Aprender" [ref=f25e13] [cursor=pointer]:
+          - /url: /learn
+        - link "Ayuda" [ref=f25e14] [cursor=pointer]:
+          - /url: /help
+        - generic [ref=f25e15]:
+          - generic [ref=f25e16]: Idioma
+          - combobox "Idioma" [ref=f25e17] [cursor=pointer]:
+            - option "ES" [selected]
+            - option "EN"
+  - main [ref=f25e18]:
+    - generic [ref=f25e19]:
+      - generic [ref=f25e20]:
+        - link "← Todos los métodos" [ref=f25e21] [cursor=pointer]:
+          - /url: /methods
+        - generic [ref=f25e22]: interpolation
+        - heading "Lagrange" [level=1] [ref=f25e23]
+      - generic [ref=f25e24]:
+        - generic [ref=f25e25]:
+          - heading "Entradas" [level=2] [ref=f25e26]
+          - generic [ref=f25e27]:
+            - strong [ref=f25e28]: Ejemplo guiado
+            - paragraph [ref=f25e29]: Practica este método con un caso preparado y revisa cómo transforma las entradas en un resultado numérico.
+            - generic [ref=f25e30]:
+              - button "Probar ejemplo" [ref=f25e31] [cursor=pointer]
+              - link "Ver explicación del método →" [ref=f25e32] [cursor=pointer]:
+                - /url: /learn#lagrange
+          - generic [ref=f25e33]:
+            - generic [ref=f25e35]:
+              - generic [ref=f25e36]: Valores de x
+              - generic [ref=f25e37]:
+                - spinbutton "Valores de x 1" [ref=f25e38]: "0"
+                - spinbutton "Valores de x 2" [ref=f25e39]: "1"
+                - spinbutton "Valores de x 3" [ref=f25e40]: "2"
+                - spinbutton "Valores de x 4" [ref=f25e41]: "3"
+                - generic [ref=f25e42]:
+                  - button "Add value" [ref=f25e43] [cursor=pointer]: +
+                  - button "Remove value" [ref=f25e44] [cursor=pointer]: −
+            - generic [ref=f25e46]:
+              - generic [ref=f25e47]: Valores de y
+              - generic [ref=f25e48]:
+                - spinbutton "Valores de y 1" [ref=f25e49]: "0"
+                - spinbutton "Valores de y 2" [ref=f25e50]: "1"
+                - spinbutton "Valores de y 3" [ref=f25e51]: "4"
+                - spinbutton "Valores de y 4" [ref=f25e52]: "9"
+                - generic [ref=f25e53]:
+                  - button "Add value" [ref=f25e54] [cursor=pointer]: +
+                  - button "Remove value" [ref=f25e55] [cursor=pointer]: −
+            - button "Calcular" [ref=f25e56] [cursor=pointer]
+        - generic [ref=f25e57]:
+          - heading "Resultado" [level=2] [ref=f25e58]
+          - paragraph [ref=f25e59]: Ingresa los parámetros y ejecuta la herramienta para ver el resultado.
+  - contentinfo [ref=f25e60]:
+    - generic [ref=f25e61]:
+      - generic [ref=f25e62]:
+        - generic [ref=f25e63]: Toroid
+        - paragraph [ref=f25e66]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+      - generic [ref=f25e67]:
+        - generic [ref=f25e68]:
+          - heading "Plataforma" [level=4] [ref=f25e69]
+          - link "Métodos" [ref=f25e70] [cursor=pointer]:
+            - /url: /methods
+          - link "Visualizador" [ref=f25e71] [cursor=pointer]:
+            - /url: /methods/graphing/function-plotter
+        - generic [ref=f25e72]:
+          - heading "Recursos" [level=4] [ref=f25e73]
+          - link "Centro de aprendizaje" [ref=f25e74] [cursor=pointer]:
+            - /url: /learn
+          - link "Documentación de ayuda" [ref=f25e75] [cursor=pointer]:
+            - /url: /help
+          - link "Teoría" [ref=f25e76] [cursor=pointer]:
+            - /url: /learn
+    - generic [ref=f25e77]:
+      - generic [ref=f25e78]: © 2026 Toroid Numerical.
+      - generic [ref=f25e79]:
+        - link "Política de privacidad" [ref=f25e80] [cursor=pointer]:
+          - /url: "#"
+        - link "Términos del servicio" [ref=f25e81] [cursor=pointer]:
+          - /url: "#"

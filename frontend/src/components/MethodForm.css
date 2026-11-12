@@ -4,6 +4,28 @@
   gap: 1.1rem;
 }
 
+.method-example {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-surface);
+}
+
+.method-example p {
+  margin: 0.45rem 0 0.85rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.method-example-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
+
 .form-field {
   display: flex;
   flex-direction: column;

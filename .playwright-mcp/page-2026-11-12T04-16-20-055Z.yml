@@ -1,0 +1,191 @@
+- generic [ref=f17e3]:
+  - banner [ref=f17e4]:
+    - generic [ref=f17e5]:
+      - link "Ir al inicio" [ref=f17e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f17e7]: Toroid
+      - navigation [ref=f17e10]:
+        - link "Inicio" [ref=f17e11] [cursor=pointer]:
+          - /url: /
+        - link "Métodos" [ref=f17e12] [cursor=pointer]:
+          - /url: /methods
+        - link "Aprender" [ref=f17e13] [cursor=pointer]:
+          - /url: /learn
+        - link "Ayuda" [ref=f17e14] [cursor=pointer]:
+          - /url: /help
+        - generic [ref=f17e15]:
+          - generic [ref=f17e16]: Idioma
+          - combobox "Idioma" [ref=f17e17] [cursor=pointer]:
+            - option "ES" [selected]
+            - option "EN"
+  - main [ref=f17e18]:
+    - generic [ref=f17e71]:
+      - complementary [ref=f17e72]:
+        - paragraph [ref=f17e73]: Índice de documentación
+        - navigation [ref=f17e74]:
+          - generic [ref=f17e75]:
+            - generic [ref=f17e76]: 01 / Solución de sistemas por gráfica
+            - link "• Graficador de funciones" [ref=f17e77] [cursor=pointer]:
+              - /url: "#function-plotter"
+          - generic [ref=f17e78]:
+            - generic [ref=f17e79]: 02 / Solución de ecuaciones de una variable
+            - link "• Evaluador de funciones" [ref=f17e80] [cursor=pointer]:
+              - /url: "#function-evaluator"
+            - link "• Búsqueda incremental" [ref=f17e81] [cursor=pointer]:
+              - /url: "#incremental"
+            - link "• Método de bisección" [ref=f17e82] [cursor=pointer]:
+              - /url: "#bisection"
+            - link "• Regla falsa" [ref=f17e83] [cursor=pointer]:
+              - /url: "#false-position"
+            - link "• Iteración de punto fijo" [ref=f17e84] [cursor=pointer]:
+              - /url: "#fixed-point"
+            - link "• Newton–Raphson" [ref=f17e85] [cursor=pointer]:
+              - /url: "#newton"
+            - link "• Método de la secante" [ref=f17e86] [cursor=pointer]:
+              - /url: "#secant"
+            - link "• Raíces múltiples" [ref=f17e87] [cursor=pointer]:
+              - /url: "#multiple-roots"
+      - generic [ref=f17e88]:
+        - generic [ref=f17e89]:
+          - heading "Centro de aprendizaje" [level=1] [ref=f17e90]
+          - paragraph [ref=f17e91]: Descompón las metodologías numéricas en pasos secuenciales. Aprende los supuestos estructurales, las condiciones locales y las reglas algebraicas necesarias para ejecutar simulaciones correctamente.
+        - generic [ref=f17e92]:
+          - heading "Conectando funciones validadas, iteraciones numéricas y gráficas cartesianas" [level=2] [ref=f17e93]
+          - paragraph [ref=f17e94]: Toroid se estructura alrededor de representaciones paralelas de las matemáticas computacionales. Al evaluar una expresión, el motor construye una representación analítica de la función, genera pasos secuenciales mediante el algoritmo elegido, imprime la tabla de errores y dibuja curvas precisas sobre las coordenadas. Esta paridad hace inmediata la validación y el estudio.
+        - generic [ref=f17e95]:
+          - heading "01 / Solución de sistemas por gráfica" [level=2] [ref=f17e96]
+          - article [ref=f17e97]:
+            - heading "Graficador de funciones" [level=3] [ref=f17e98]
+            - paragraph [ref=f17e99]:
+              - strong [ref=f17e100]: "Propósito:"
+              - text: Localiza rangos potenciales de raíces y examina el comportamiento continuo de las pendientes.
+            - paragraph [ref=f17e101]:
+              - strong [ref=f17e102]: "Entradas requeridas:"
+              - text: Expresión f(x) (texto), límites de los ejes x mínimo y x máximo.
+            - paragraph [ref=f17e103]:
+              - strong [ref=f17e104]: "Idea clave:"
+              - text: Renderiza el lugar geométrico continuo sobre intervalos cartesianos discretos.
+            - generic [ref=f17e105]: "Nota: Es útil para identificar discontinuidades, asíntotas y picos de multiplicidad antes de ejecutar algoritmos específicos."
+            - link "Abrir área de práctica →" [ref=f17e106] [cursor=pointer]:
+              - /url: /methods/graphing/function-plotter
+        - generic [ref=f17e107]:
+          - heading "02 / Solución de ecuaciones de una variable" [level=2] [ref=f17e108]
+          - article [ref=f17e109]:
+            - heading "Evaluador de funciones" [level=3] [ref=f17e110]
+            - paragraph [ref=f17e111]:
+              - strong [ref=f17e112]: "Propósito:"
+              - text: Obtén valores puntuales de fórmulas continuas sin renderizar una vista completa.
+            - paragraph [ref=f17e113]:
+              - strong [ref=f17e114]: "Entradas requeridas:"
+              - text: Texto de f(x) y valor puntual de x.
+            - link "Abrir área de práctica →" [ref=f17e115] [cursor=pointer]:
+              - /url: /methods/equations/function-evaluator
+          - article [ref=f17e116]:
+            - heading "Búsqueda incremental" [level=3] [ref=f17e117]
+            - paragraph [ref=f17e118]:
+              - strong [ref=f17e119]: "Propósito:"
+              - text: Localiza pares de coordenadas límite donde la curva cruza y = 0.
+            - paragraph [ref=f17e120]:
+              - strong [ref=f17e121]: "Entradas requeridas:"
+              - text: f(x), x inicial, tamaño del paso y máximo de iteraciones.
+            - paragraph [ref=f17e122]:
+              - strong [ref=f17e123]: "Guía clave:"
+              - text: Usa pasos suficientemente pequeños para no saltar raíces cercanas, pero lo bastante amplios para conservar el rendimiento.
+            - link "Abrir área de práctica →" [ref=f17e124] [cursor=pointer]:
+              - /url: /methods/equations/incremental
+          - article [ref=f17e125]:
+            - heading "Método de bisección" [level=3] [ref=f17e126]
+            - paragraph [ref=f17e127]:
+              - strong [ref=f17e128]: "Propósito:"
+              - text: Convergencia lineal rigurosa sobre intervalos acotados.
+            - paragraph [ref=f17e129]:
+              - strong [ref=f17e130]: "Condición de cambio de signo:"
+              - text: Requiere f(a) × f(b) < 0 para cumplir el teorema de Bolzano.
+            - paragraph [ref=f17e131]:
+              - strong [ref=f17e132]: "Idea clave:"
+              - text: Punto medio xm = (a + b) / 2. Reemplaza el límite que conserva el cambio de signo.
+            - link "Abrir área de práctica →" [ref=f17e133] [cursor=pointer]:
+              - /url: /methods/equations/bisection
+          - article [ref=f17e134]:
+            - heading "Regla falsa" [level=3] [ref=f17e135]
+            - paragraph [ref=f17e136]:
+              - strong [ref=f17e137]: "Propósito:"
+              - text: Localiza raíces trazando secantes entre límites con cambio de signo.
+            - paragraph [ref=f17e138]:
+              - strong [ref=f17e139]: "Fórmula:"
+              - text: xm = b - [f(b) × (b - a)] / [f(b) - f(a)].
+            - link "Abrir área de práctica →" [ref=f17e140] [cursor=pointer]:
+              - /url: /methods/equations/false-position
+          - article [ref=f17e141]:
+            - heading "Iteración de punto fijo" [level=3] [ref=f17e142]
+            - paragraph [ref=f17e143]:
+              - strong [ref=f17e144]: "Propósito:"
+              - text: Mapea iteraciones basadas en transiciones estructurales x = g(x).
+            - paragraph [ref=f17e145]:
+              - strong [ref=f17e146]: "Condición de convergencia:"
+              - text: Requiere |g’(x)| < 1 en el entorno de la coordenada objetivo.
+            - link "Abrir área de práctica →" [ref=f17e147] [cursor=pointer]:
+              - /url: /methods/equations/fixed-point
+          - article [ref=f17e148]:
+            - heading "Newton–Raphson" [level=3] [ref=f17e149]
+            - paragraph [ref=f17e150]:
+              - strong [ref=f17e151]: "Propósito:"
+              - text: Convergencia cuadrática rápida mediante derivadas locales continuas.
+            - paragraph [ref=f17e152]:
+              - strong [ref=f17e153]: "Fórmula:"
+              - text: x_next = xi - f(xi) / f’(xi).
+            - paragraph [ref=f17e154]:
+              - strong [ref=f17e155]: "Condición:"
+              - text: La derivada local f’(xi) nunca debe ser 0. Las pendientes planas hacen fallar Newton-Raphson.
+            - link "Abrir área de práctica →" [ref=f17e156] [cursor=pointer]:
+              - /url: /methods/equations/newton
+          - article [ref=f17e157]:
+            - heading "Método de la secante" [level=3] [ref=f17e158]
+            - paragraph [ref=f17e159]:
+              - strong [ref=f17e160]: "Propósito:"
+              - text: Evita las ecuaciones de derivadas usando intervalos discretos anteriores.
+            - paragraph [ref=f17e161]:
+              - strong [ref=f17e162]: "Advertencia de valor cercano a cero:"
+              - text: Requiere f(xi) - f(xi-1) ≠ 0; de lo contrario, el denominador se acerca a cero.
+            - link "Abrir área de práctica →" [ref=f17e163] [cursor=pointer]:
+              - /url: /methods/equations/secant
+          - article [ref=f17e164]:
+            - heading "Raíces múltiples" [level=3] [ref=f17e165]
+            - paragraph [ref=f17e166]:
+              - strong [ref=f17e167]: "Propósito:"
+              - text: Analiza polinomios con raíces de multiplicidad alta.
+            - paragraph [ref=f17e168]:
+              - strong [ref=f17e169]: "Newton adaptado:"
+              - text: x_next = xi - [ f(xi) × f’(xi) ] / [ (f’(xi))^2 - f(xi) × f’’(xi) ].
+            - link "Abrir área de práctica →" [ref=f17e170] [cursor=pointer]:
+              - /url: /methods/equations/multiple-roots
+        - generic [ref=f17e171]:
+          - heading "Interpretando tablas de convergencia y márgenes de error" [level=2] [ref=f17e172]
+          - paragraph [ref=f17e173]: Los resultados numéricos son tan válidos como sus márgenes de error. En las vistas tabulares, el error absoluto E = |xi - xi-1| registra los incrementos de cada paso. Cuando E &lt; Tolerancia (normalmente 1e-6), el ciclo termina y valida la coordenada de la raíz.
+  - contentinfo [ref=f17e49]:
+    - generic [ref=f17e50]:
+      - generic [ref=f17e51]:
+        - generic [ref=f17e52]: Toroid
+        - paragraph [ref=f17e55]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+      - generic [ref=f17e56]:
+        - generic [ref=f17e57]:
+          - heading "Plataforma" [level=4] [ref=f17e58]
+          - link "Métodos" [ref=f17e59] [cursor=pointer]:
+            - /url: /methods
+          - link "Visualizador" [ref=f17e60] [cursor=pointer]:
+            - /url: /methods/graphing/function-plotter
+        - generic [ref=f17e61]:
+          - heading "Recursos" [level=4] [ref=f17e62]
+          - link "Centro de aprendizaje" [ref=f17e63] [cursor=pointer]:
+            - /url: /learn
+          - link "Documentación de ayuda" [ref=f17e64] [cursor=pointer]:
+            - /url: /help
+          - link "Teoría" [ref=f17e65] [cursor=pointer]:
+            - /url: /learn
+    - generic [ref=f17e66]:
+      - generic [ref=f17e67]: © 2026 Toroid Numerical.
+      - generic [ref=f17e68]:
+        - link "Política de privacidad" [ref=f17e69] [cursor=pointer]:
+          - /url: "#"
+        - link "Términos del servicio" [ref=f17e70] [cursor=pointer]:
+          - /url: "#"

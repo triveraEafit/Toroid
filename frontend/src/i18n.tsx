@@ -14,6 +14,9 @@ type TranslationKey =
   | 'method.back' | 'method.inputs' | 'method.result' | 'method.empty'
   | 'method.notFound' | 'method.pick' | 'method.plot' | 'method.evaluate'
   | 'method.calculate' | 'method.value' | 'method.requestFailed'
+  | 'method.exampleTitle' | 'method.exampleText' | 'method.runExample'
+  | 'method.equationExampleText' | 'method.sectionExampleText'
+  | 'method.exampleLearn'
   | 'field.function' | 'field.functionHelp' | 'field.g_function' | 'field.x_min'
   | 'field.x_max' | 'field.x_point' | 'field.x0' | 'field.x1' | 'field.a'
   | 'field.b' | 'field.delta' | 'field.w' | 'field.tolerance' | 'field.max_iterations'
@@ -52,6 +55,11 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
     'method.empty': 'Ingresa los parámetros y ejecuta la herramienta para ver el resultado.', 'method.notFound': 'Herramienta no encontrada',
     'method.pick': 'Selecciona una herramienta del directorio de métodos.', 'method.plot': 'Graficar',
     'method.evaluate': 'Evaluar', 'method.calculate': 'Calcular', 'method.value': 'Valor', 'method.requestFailed': 'La solicitud falló',
+    'method.exampleTitle': 'Ejemplo guiado', 'method.exampleText': 'Explora la función f(x) = x³ − 4x en el intervalo [-3, 3]. Sus cortes con el eje x permiten observar tres raíces.',
+    'method.runExample': 'Probar ejemplo',
+    'method.equationExampleText': 'Practica este método con un caso preparado y observa cómo se aproxima a la solución.',
+    'method.sectionExampleText': 'Practica este método con un caso preparado y revisa cómo transforma las entradas en un resultado numérico.',
+    'method.exampleLearn': 'Ver explicación del método',
     'field.function': 'Función f(x)', 'field.functionHelp': 'Usa ^ para potencias, por ejemplo x^3 - x - 2. Funciones: sin, cos, exp, ln, sqrt.',
     'field.g_function': 'Función de iteración g(x)', 'field.x_min': 'x mínimo', 'field.x_max': 'x máximo',
     'field.x_point': 'Evaluar en x', 'field.x0': 'Valor inicial x0', 'field.x1': 'Segundo valor x1',
@@ -95,6 +103,11 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
     'method.empty': 'Enter parameters and run the tool to see the output.', 'method.notFound': 'Tool not found',
     'method.pick': 'Pick a tool from the Methods directory.', 'method.plot': 'Plot', 'method.evaluate': 'Evaluate',
     'method.calculate': 'Calculate', 'method.value': 'Value', 'method.requestFailed': 'Request failed',
+    'method.exampleTitle': 'Guided example', 'method.exampleText': 'Explore f(x) = x³ − 4x over the interval [-3, 3]. Its x-axis crossings reveal three roots.',
+    'method.runExample': 'Run example',
+    'method.equationExampleText': 'Practice this method with a prepared case and observe how it approaches the solution.',
+    'method.sectionExampleText': 'Practice this method with a prepared case and inspect how it transforms the inputs into a numerical result.',
+    'method.exampleLearn': 'Read the method explanation',
     'field.function': 'Function f(x)', 'field.functionHelp': 'Use ^ for powers, e.g. x^3 - x - 2. Functions: sin, cos, exp, ln, sqrt.',
     'field.g_function': 'Iteration function g(x)', 'field.x_min': 'x min', 'field.x_max': 'x max', 'field.x_point': 'Evaluate at x',
     'field.x0': 'Initial value x0', 'field.x1': 'Second value x1', 'field.a': 'Lower bound a', 'field.b': 'Upper bound b',

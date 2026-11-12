@@ -1,0 +1,80 @@
+- generic [ref=f17e3]:
+  - banner [ref=f17e4]:
+    - generic [ref=f17e5]:
+      - link "Ir al inicio" [ref=f17e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f17e7]: Toroid
+      - navigation [ref=f17e10]:
+        - link "Inicio" [ref=f17e11] [cursor=pointer]:
+          - /url: /
+        - link "Métodos" [ref=f17e12] [cursor=pointer]:
+          - /url: /methods
+        - link "Aprender" [ref=f17e13] [cursor=pointer]:
+          - /url: /learn
+        - link "Ayuda" [ref=f17e14] [cursor=pointer]:
+          - /url: /help
+        - generic [ref=f17e15]:
+          - generic [ref=f17e16]: Idioma
+          - combobox "Idioma" [ref=f17e17] [cursor=pointer]:
+            - option "ES" [selected]
+            - option "EN"
+  - main [ref=f17e18]:
+    - generic [ref=f17e19]:
+      - generic [ref=f17e20]:
+        - link "← Todos los métodos" [ref=f17e21] [cursor=pointer]:
+          - /url: /methods
+        - generic [ref=f17e22]: graphing
+        - heading "Graficador de funciones" [level=1] [ref=f17e23]
+      - generic [ref=f17e24]:
+        - generic [ref=f17e25]:
+          - heading "Entradas" [level=2] [ref=f17e26]
+          - generic [ref=f17e27]:
+            - strong [ref=f17e28]: Ejemplo guiado
+            - paragraph [ref=f17e29]: Explora la función f(x) = x³ − 4x en el intervalo [-3, 3]. Sus cortes con el eje x permiten observar tres raíces.
+            - generic [ref=f17e30]:
+              - button "Cargar ejemplo" [ref=f17e31] [cursor=pointer]
+              - button "Probar ejemplo" [ref=f17e32] [cursor=pointer]
+              - link "Ver explicación del método →" [ref=f17e33] [cursor=pointer]:
+                - /url: /learn#function-plotter
+          - generic [ref=f17e34]:
+            - generic [ref=f17e35]:
+              - generic [ref=f17e36]: Función f(x)
+              - textbox "Función f(x)" [ref=f17e37]: x^2 - 2
+              - generic [ref=f17e38]: "Usa ^ para potencias, por ejemplo x^3 - x - 2. Funciones: sin, cos, exp, ln, sqrt."
+            - generic [ref=f17e39]:
+              - generic [ref=f17e40]: x mínimo
+              - spinbutton "x mínimo" [ref=f17e41]: "-10"
+            - generic [ref=f17e42]:
+              - generic [ref=f17e43]: x máximo
+              - spinbutton "x máximo" [ref=f17e44]: "10"
+            - button "Graficar" [ref=f17e45] [cursor=pointer]
+        - generic [ref=f17e46]:
+          - heading "Resultado" [level=2] [ref=f17e47]
+          - paragraph [ref=f17e48]: Ingresa los parámetros y ejecuta la herramienta para ver el resultado.
+  - contentinfo [ref=f17e49]:
+    - generic [ref=f17e50]:
+      - generic [ref=f17e51]:
+        - generic [ref=f17e52]: Toroid
+        - paragraph [ref=f17e55]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+      - generic [ref=f17e56]:
+        - generic [ref=f17e57]:
+          - heading "Plataforma" [level=4] [ref=f17e58]
+          - link "Métodos" [ref=f17e59] [cursor=pointer]:
+            - /url: /methods
+          - link "Visualizador" [ref=f17e60] [cursor=pointer]:
+            - /url: /methods/graphing/function-plotter
+        - generic [ref=f17e61]:
+          - heading "Recursos" [level=4] [ref=f17e62]
+          - link "Centro de aprendizaje" [ref=f17e63] [cursor=pointer]:
+            - /url: /learn
+          - link "Documentación de ayuda" [ref=f17e64] [cursor=pointer]:
+            - /url: /help
+          - link "Teoría" [ref=f17e65] [cursor=pointer]:
+            - /url: /learn
+    - generic [ref=f17e66]:
+      - generic [ref=f17e67]: © 2026 Toroid Numerical.
+      - generic [ref=f17e68]:
+        - link "Política de privacidad" [ref=f17e69] [cursor=pointer]:
+          - /url: "#"
+        - link "Términos del servicio" [ref=f17e70] [cursor=pointer]:
+          - /url: "#"

@@ -12,6 +12,34 @@ import { useCatalog } from '../methods/useCatalog'
 import './MethodPage.css'
 import { useLanguage } from '../i18n'
 
+const EQUATION_EXAMPLES: Record<string, Record<string, unknown>> = {
+  'function-evaluator': { function: 'exp(x) - 7', x_point: 3 },
+  incremental: { function: 'x^2 - 11', x0: -8, delta: 1.25, max_iterations: 30 },
+  bisection: { function: 'x^2 - 13', a: 2, b: 5, tolerance: 1e-7, max_iterations: 60 },
+  'false-position': { function: 'x^2 - 17', a: 3, b: 5, tolerance: 1e-7, max_iterations: 60 },
+  'fixed-point': { function: 'x^2 - 13', g_function: '0.5 * (x + 13/x)', x0: 7, tolerance: 1e-7, max_iterations: 60 },
+  newton: { function: 'x^2 - 19', x0: 6, tolerance: 1e-7, max_iterations: 60 },
+  secant: { function: 'x^2 - 23', x0: -6, x1: -4, tolerance: 1e-7, max_iterations: 60 },
+  'multiple-roots': { function: '(x + 5)^2', x0: 9, tolerance: 1e-7, max_iterations: 60 },
+}
+
+const SYSTEM_EXAMPLE = {
+  matrix: [[10, 2, 1], [2, 8, 2], [1, 2, 7]],
+  vector: [7, -4, 9],
+}
+
+const ITERATIVE_SYSTEM_EXAMPLE = {
+  ...SYSTEM_EXAMPLE,
+  x0_vec: [6, -5, 8],
+  tolerance: 1e-7,
+  max_iterations: 80,
+}
+
+const INTERPOLATION_EXAMPLE = {
+  x: [-4, -1, 3, 8],
+  y: [19, 4, 10, 67],
+}
+
 export function MethodPage() {
   const { category, slug } = useParams()
   const { catalog } = useCatalog()
@@ -88,6 +116,14 @@ export function MethodPage() {
   }
 
   const hasOutput = result || points || pointValue !== null || error
+  const example = method.slug === 'function-plotter'
+    ? { function: 'x^3 - 4*x', x_min: -3, x_max: 3 }
+    : EQUATION_EXAMPLES[method.slug]
+      ?? (category === 'systems'
+        ? (['jacobi', 'gauss-seidel', 'sor'].includes(method.slug)
+          ? { ...ITERATIVE_SYSTEM_EXAMPLE, ...(method.slug === 'sor' ? { w: 1.35 } : {}) }
+          : SYSTEM_EXAMPLE)
+        : category === 'interpolation' ? INTERPOLATION_EXAMPLE : undefined)
 
   return (
     <div className="method-page container">
@@ -105,6 +141,13 @@ export function MethodPage() {
             fields={method.fields}
             onSubmit={handleSubmit}
             loading={loading}
+            example={example}
+            exampleText={method.slug === 'function-plotter'
+              ? undefined
+              : example
+                ? category === 'equations' ? t('method.equationExampleText') : t('method.sectionExampleText')
+                : undefined}
+            exampleLearnHref={example ? `/learn#${method.slug}` : undefined}
             submitLabel={method.kind === 'plotter' ? t('method.plot') : method.kind === 'evaluator' ? t('method.evaluate') : t('method.calculate')}
           />
         </section>

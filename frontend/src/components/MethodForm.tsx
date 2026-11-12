@@ -1,6 +1,7 @@
 // Generic form that renders inputs for a method based on its declared fields.
 // Reused by every calculator page; each field key maps to a FieldSpec.
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { specFor } from '../methods/fields'
 import { MatrixInput } from './MatrixInput'
 import { VectorInput } from './VectorInput'
@@ -12,6 +13,9 @@ interface MethodFormProps {
   onSubmit: (values: Record<string, unknown>) => void
   loading?: boolean
   submitLabel?: string
+  example?: Record<string, unknown>
+  exampleLearnHref?: string
+  exampleText?: string
 }
 
 function initialValues(fields: string[]): Record<string, unknown> {
@@ -22,11 +26,17 @@ function initialValues(fields: string[]): Record<string, unknown> {
   return values
 }
 
-export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate' }: MethodFormProps) {
+export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate', example, exampleLearnHref, exampleText }: MethodFormProps) {
   const { t } = useLanguage()
   const [values, setValues] = useState<Record<string, unknown>>(() => initialValues(fields))
 
   const update = (key: string, value: unknown) => setValues((v) => ({ ...v, [key]: value }))
+  const runExample = () => {
+    if (!example || loading) return
+    const exampleValues = structuredClone(example)
+    setValues((current) => ({ ...current, ...exampleValues }))
+    onSubmit(exampleValues)
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,7 +44,24 @@ export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate
   }
 
   return (
-    <form className="method-form" onSubmit={handleSubmit}>
+    <>
+      {example && (
+        <div className="method-example">
+          <strong>{t('method.exampleTitle')}</strong>
+          <p>{exampleText ?? t('method.exampleText')}</p>
+          <div className="method-example-actions">
+            <button type="button" className="btn-primary" onClick={runExample} disabled={loading}>
+              {t('method.runExample')}
+            </button>
+            {exampleLearnHref && (
+              <Link className="btn-link" to={exampleLearnHref}>
+                {t('method.exampleLearn')} →
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
+      <form className="method-form" onSubmit={handleSubmit}>
       {fields.map((key) => {
         const spec = specFor(key)
         const value = values[key]
@@ -75,6 +102,7 @@ export function MethodForm({ fields, onSubmit, loading, submitLabel = 'Calculate
       <button type="submit" className="btn-primary" disabled={loading}>
         {loading ? t('field.calculating') : submitLabel}
       </button>
-    </form>
+      </form>
+    </>
   )
 }

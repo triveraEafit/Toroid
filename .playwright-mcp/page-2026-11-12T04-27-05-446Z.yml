@@ -1,0 +1,278 @@
+- generic [ref=f24e3]:
+  - banner [ref=f24e4]:
+    - generic [ref=f24e5]:
+      - link "Ir al inicio" [ref=f24e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f24e7]: Toroid
+      - navigation [ref=f24e10]:
+        - link "Inicio" [ref=f24e11] [cursor=pointer]:
+          - /url: /
+        - link "Métodos" [ref=f24e12] [cursor=pointer]:
+          - /url: /methods
+        - link "Aprender" [ref=f24e13] [cursor=pointer]:
+          - /url: /learn
+        - link "Ayuda" [ref=f24e14] [cursor=pointer]:
+          - /url: /help
+        - generic [ref=f24e15]:
+          - generic [ref=f24e16]: Idioma
+          - combobox "Idioma" [ref=f24e17] [cursor=pointer]:
+            - option "ES" [selected]
+            - option "EN"
+  - main [ref=f24e18]:
+    - generic [ref=f24e19]:
+      - generic [ref=f24e20]:
+        - link "← Todos los métodos" [ref=f24e21] [cursor=pointer]:
+          - /url: /methods
+        - generic [ref=f24e22]: systems
+        - heading "Jacobi" [level=1] [ref=f24e23]
+      - generic [ref=f24e24]:
+        - generic [ref=f24e25]:
+          - heading "Entradas" [level=2] [ref=f24e26]
+          - generic [ref=f24e27]:
+            - strong [ref=f24e28]: Ejemplo guiado
+            - paragraph [ref=f24e29]: Practica este método con un caso preparado y revisa cómo transforma las entradas en un resultado numérico.
+            - generic [ref=f24e30]:
+              - button "Probar ejemplo" [ref=f24e31] [cursor=pointer]
+              - link "Ver explicación del método →" [ref=f24e32] [cursor=pointer]:
+                - /url: /learn
+          - generic [ref=f24e33]:
+            - generic [ref=f24e35]:
+              - generic [ref=f24e36]: Matriz de coeficientes A
+              - generic [ref=f24e37]:
+                - generic [ref=f24e38]:
+                  - text: Tamaño
+                  - spinbutton "Tamaño" [ref=f24e39]: "3"
+                - generic [ref=f24e40]: (cuadrada 3×3)
+              - generic [ref=f24e41]:
+                - spinbutton "a11" [ref=f24e42]: "10"
+                - spinbutton "a12" [ref=f24e43]: "2"
+                - spinbutton "a13" [ref=f24e44]: "1"
+                - spinbutton "a21" [ref=f24e45]: "2"
+                - spinbutton "a22" [ref=f24e46]: "8"
+                - spinbutton "a23" [ref=f24e47]: "2"
+                - spinbutton "a31" [ref=f24e48]: "1"
+                - spinbutton "a32" [ref=f24e49]: "2"
+                - spinbutton "a33" [ref=f24e50]: "7"
+            - generic [ref=f24e52]:
+              - generic [ref=f24e53]: Vector b
+              - generic [ref=f24e54]:
+                - spinbutton "Vector b 1" [ref=f24e55]: "7"
+                - spinbutton "Vector b 2" [ref=f24e56]: "-4"
+                - spinbutton "Vector b 3" [ref=f24e57]: "9"
+                - generic [ref=f24e58]:
+                  - button "Add value" [ref=f24e59] [cursor=pointer]: +
+                  - button "Remove value" [ref=f24e60] [cursor=pointer]: −
+            - generic [ref=f24e62]:
+              - generic [ref=f24e63]: Vector inicial x0
+              - generic [ref=f24e64]:
+                - spinbutton "Vector inicial x0 1" [ref=f24e65]: "6"
+                - spinbutton "Vector inicial x0 2" [ref=f24e66]: "-5"
+                - spinbutton "Vector inicial x0 3" [ref=f24e67]: "8"
+                - generic [ref=f24e68]:
+                  - button "Add value" [ref=f24e69] [cursor=pointer]: +
+                  - button "Remove value" [ref=f24e70] [cursor=pointer]: −
+            - generic [ref=f24e71]:
+              - generic [ref=f24e72]: Tolerancia
+              - spinbutton "Tolerancia" [ref=f24e73]: "1e-7"
+            - generic [ref=f24e74]:
+              - generic [ref=f24e75]: Máximo de iteraciones
+              - spinbutton "Máximo de iteraciones" [ref=f24e76]: "80"
+            - button "Calcular" [ref=f24e77] [cursor=pointer]
+        - generic [ref=f24e78]:
+          - heading "Resultado" [level=2] [ref=f24e79]
+          - generic [ref=f24e103]:
+            - status [ref=f24e104]: The method converged to a solution
+            - generic [ref=f24e105]:
+              - generic [ref=f24e106]: Result
+              - code [ref=f24e107]: "[ 0.76422763, -1.0609756, 1.4796748 ]"
+            - table [ref=f24e109]:
+              - rowgroup [ref=f24e110]:
+                - row [ref=f24e111]:
+                  - columnheader "iter" [ref=f24e112]
+                  - columnheader "x1" [ref=f24e113]
+                  - columnheader "x2" [ref=f24e114]
+                  - columnheader "x3" [ref=f24e115]
+                  - columnheader "abs. error" [ref=f24e116]
+                  - columnheader "rel. error" [ref=f24e117]
+              - rowgroup [ref=f24e118]:
+                - row [ref=f24e119]:
+                  - cell "0" [ref=f24e120]
+                  - cell "6" [ref=f24e121]
+                  - cell "-5" [ref=f24e122]
+                  - cell "8" [ref=f24e123]
+                  - cell "—" [ref=f24e124]
+                  - cell "—" [ref=f24e125]
+                - row [ref=f24e126]:
+                  - cell "1" [ref=f24e127]
+                  - cell "0.9" [ref=f24e128]
+                  - cell "-4" [ref=f24e129]
+                  - cell "1.8571429" [ref=f24e130]
+                  - cell "6.1428571" [ref=f24e131]
+                  - cell "1.5357143" [ref=f24e132]
+                - row [ref=f24e133]:
+                  - cell "2" [ref=f24e134]
+                  - cell "1.3142857" [ref=f24e135]
+                  - cell "-1.1892857" [ref=f24e136]
+                  - cell "2.3" [ref=f24e137]
+                  - cell "2.8107143" [ref=f24e138]
+                  - cell "1.2220497" [ref=f24e139]
+                - row [ref=f24e140]:
+                  - cell "3" [ref=f24e141]
+                  - cell "0.70785714" [ref=f24e142]
+                  - cell "-1.4035714" [ref=f24e143]
+                  - cell "1.4377551" [ref=f24e144]
+                  - cell "0.8622449" [ref=f24e145]
+                  - cell "0.59971611" [ref=f24e146]
+                - row [ref=f24e147]:
+                  - cell "4" [ref=f24e148]
+                  - cell "0.83693878" [ref=f24e149]
+                  - cell "-1.0364031" [ref=f24e150]
+                  - cell "1.5856122" [ref=f24e151]
+                  - cell "0.36716837" [ref=f24e152]
+                  - cell "0.23156252" [ref=f24e153]
+                - row [ref=f24e154]:
+                  - cell "5" [ref=f24e155]
+                  - cell "0.74871939" [ref=f24e156]
+                  - cell "-1.1056378" [ref=f24e157]
+                  - cell "1.4622668" [ref=f24e158]
+                  - cell "0.12334548" [ref=f24e159]
+                  - cell "0.084352243" [ref=f24e160]
+                - row [ref=f24e161]:
+                  - cell "6" [ref=f24e162]
+                  - cell "0.77490087" [ref=f24e163]
+                  - cell "-1.0527465" [ref=f24e164]
+                  - cell "1.4946509" [ref=f24e165]
+                  - cell "0.052891217" [ref=f24e166]
+                  - cell "0.035387004" [ref=f24e167]
+                - row [ref=f24e168]:
+                  - cell "7" [ref=f24e169]
+                  - cell "0.76108422" [ref=f24e170]
+                  - cell "-1.0673879" [ref=f24e171]
+                  - cell "1.4757989" [ref=f24e172]
+                  - cell "0.018851989" [ref=f24e173]
+                  - cell "0.012774091" [ref=f24e174]
+                - row [ref=f24e175]:
+                  - cell "8" [ref=f24e176]
+                  - cell "0.7658977" [ref=f24e177]
+                  - cell "-1.0592208" [ref=f24e178]
+                  - cell "1.481956" [ref=f24e179]
+                  - cell "0.0081671608" [ref=f24e180]
+                  - cell "0.0055110685" [ref=f24e181]
+                - row [ref=f24e182]:
+                  - cell "9" [ref=f24e183]
+                  - cell "0.76364856" [ref=f24e184]
+                  - cell "-1.0619634" [ref=f24e185]
+                  - cell "1.4789348" [ref=f24e186]
+                  - cell "0.0030211143" [ref=f24e187]
+                  - cell "0.0020427637" [ref=f24e188]
+                - row [ref=f24e189]:
+                  - cell "10" [ref=f24e190]
+                  - cell "0.7644992" [ref=f24e191]
+                  - cell "-1.0606458" [ref=f24e192]
+                  - cell "1.4800398" [ref=f24e193]
+                  - cell "0.0013175632" [ref=f24e194]
+                  - cell "0.00089022153" [ref=f24e195]
+                - row [ref=f24e196]:
+                  - cell "11" [ref=f24e197]
+                  - cell "0.76412519" [ref=f24e198]
+                  - cell "-1.0611347" [ref=f24e199]
+                  - cell "1.4795418" [ref=f24e200]
+                  - cell "0.00049796644" [ref=f24e201]
+                  - cell "0.00033656802" [ref=f24e202]
+                - row [ref=f24e203]:
+                  - cell "12" [ref=f24e204]
+                  - cell "0.76427277" [ref=f24e205]
+                  - cell "-1.0609167" [ref=f24e206]
+                  - cell "1.4797349" [ref=f24e207]
+                  - cell "0.00021799267" [ref=f24e208]
+                  - cell "0.00014731873" [ref=f24e209]
+                - row [ref=f24e210]:
+                  - cell "13" [ref=f24e211]
+                  - cell "0.76420986" [ref=f24e212]
+                  - cell "-1.0610019" [ref=f24e213]
+                  - cell "1.4796515" [ref=f24e214]
+                  - cell "8.5171e-5" [ref=f24e215]
+                  - cell "5.7562e-5" [ref=f24e216]
+                - row [ref=f24e217]:
+                  - cell "14" [ref=f24e218]
+                  - cell "0.76423523" [ref=f24e219]
+                  - cell "-1.0609653" [ref=f24e220]
+                  - cell "1.4796849" [ref=f24e221]
+                  - cell "3.6569e-5" [ref=f24e222]
+                  - cell "2.4714e-5" [ref=f24e223]
+                - row [ref=f24e224]:
+                  - cell "15" [ref=f24e225]
+                  - cell "0.76422458" [ref=f24e226]
+                  - cell "-1.06098" [ref=f24e227]
+                  - cell "1.4796708" [ref=f24e228]
+                  - cell "1.4673e-5" [ref=f24e229]
+                  - cell "9.9165e-6" [ref=f24e230]
+                - row [ref=f24e231]:
+                  - cell "16" [ref=f24e232]
+                  - cell "0.76422893" [ref=f24e233]
+                  - cell "-1.0609738" [ref=f24e234]
+                  - cell "1.4796765" [ref=f24e235]
+                  - cell "6.1796e-6" [ref=f24e236]
+                  - cell "4.1764e-6" [ref=f24e237]
+                - row [ref=f24e238]:
+                  - cell "17" [ref=f24e239]
+                  - cell "0.76422712" [ref=f24e240]
+                  - cell "-1.0609764" [ref=f24e241]
+                  - cell "1.4796741" [ref=f24e242]
+                  - cell "2.5138e-6" [ref=f24e243]
+                  - cell "1.6989e-6" [ref=f24e244]
+                - row [ref=f24e245]:
+                  - cell "18" [ref=f24e246]
+                  - cell "0.76422786" [ref=f24e247]
+                  - cell "-1.0609753" [ref=f24e248]
+                  - cell "1.4796751" [ref=f24e249]
+                  - cell "1.0483e-6" [ref=f24e250]
+                  - cell "7.0846e-7" [ref=f24e251]
+                - row [ref=f24e252]:
+                  - cell "19" [ref=f24e253]
+                  - cell "0.76422755" [ref=f24e254]
+                  - cell "-1.0609757" [ref=f24e255]
+                  - cell "1.4796747" [ref=f24e256]
+                  - cell "4.2944e-7" [ref=f24e257]
+                  - cell "2.9022e-7" [ref=f24e258]
+                - row [ref=f24e259]:
+                  - cell "20" [ref=f24e260]
+                  - cell "0.76422768" [ref=f24e261]
+                  - cell "-1.0609756" [ref=f24e262]
+                  - cell "1.4796748" [ref=f24e263]
+                  - cell "1.7818e-7" [ref=f24e264]
+                  - cell "1.2042e-7" [ref=f24e265]
+                - row [ref=f24e266]:
+                  - cell "21" [ref=f24e267]
+                  - cell "0.76422763" [ref=f24e268]
+                  - cell "-1.0609756" [ref=f24e269]
+                  - cell "1.4796748" [ref=f24e270]
+                  - cell "7.3256e-8" [ref=f24e271]
+                  - cell "4.9508e-8" [ref=f24e272]
+  - contentinfo [ref=f24e81]:
+    - generic [ref=f24e82]:
+      - generic [ref=f24e83]:
+        - generic [ref=f24e84]: Toroid
+        - paragraph [ref=f24e87]: Un espacio educativo y una suite visual para análisis numérico. Formula, aproxima y analiza criterios de convergencia con rigor matemático.
+      - generic [ref=f24e88]:
+        - generic [ref=f24e89]:
+          - heading "Plataforma" [level=4] [ref=f24e90]
+          - link "Métodos" [ref=f24e91] [cursor=pointer]:
+            - /url: /methods
+          - link "Visualizador" [ref=f24e92] [cursor=pointer]:
+            - /url: /methods/graphing/function-plotter
+        - generic [ref=f24e93]:
+          - heading "Recursos" [level=4] [ref=f24e94]
+          - link "Centro de aprendizaje" [ref=f24e95] [cursor=pointer]:
+            - /url: /learn
+          - link "Documentación de ayuda" [ref=f24e96] [cursor=pointer]:
+            - /url: /help
+          - link "Teoría" [ref=f24e97] [cursor=pointer]:
+            - /url: /learn
+    - generic [ref=f24e98]:
+      - generic [ref=f24e99]: © 2026 Toroid Numerical.
+      - generic [ref=f24e100]:
+        - link "Política de privacidad" [ref=f24e101] [cursor=pointer]:
+          - /url: "#"
+        - link "Términos del servicio" [ref=f24e102] [cursor=pointer]:
+          - /url: "#"
